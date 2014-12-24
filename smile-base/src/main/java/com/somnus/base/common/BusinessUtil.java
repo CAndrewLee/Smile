@@ -3,7 +3,6 @@ package com.somnus.base.common;
 import com.somnus.base.domain.TrnTransaction;
 import com.somnus.message.account.AccountResponse;
 
-
 public class BusinessUtil {
 	
 	/**

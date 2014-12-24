@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.somnus.support.util;
 
 import java.net.InetAddress;

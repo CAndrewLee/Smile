@@ -21,7 +21,6 @@ import com.jcraft.jsch.SftpException;
  * sftp工具。注意：构造方法有两个：分别是基于密码认证、基于秘钥认证。<br>
  * 
  * @see http://xliangwu.iteye.com/blog/1499764
- * @author 刘军, 2014-7-30
  */
 public class SFTPUtil {
 	private final static Logger log = LoggerFactory.getLogger(SFTPUtil.class);

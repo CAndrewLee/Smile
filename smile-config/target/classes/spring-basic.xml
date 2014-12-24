@@ -38,7 +38,6 @@
     <import resource="classpath:/spring-aspect.xml"/>
     <import resource="classpath:/spring-env.xml"/>
     <import resource="classpath:/spring-resource-db.xml"/>
-    <import resource="classpath:/spring-hibernate.xml"/>	
     <import resource="classpath:/spring-mybatis.xml"/>
     <import resource="classpath:/spring-beanvalidation.xml" />
     <import resource="classpath*:/jms/spring-*.xml" />

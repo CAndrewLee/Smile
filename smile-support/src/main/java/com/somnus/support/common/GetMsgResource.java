@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.somnus.support.common;
 
 import java.text.MessageFormat;

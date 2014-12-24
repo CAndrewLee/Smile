@@ -13,12 +13,12 @@
 		<property name="targetDSDirect" ref="dataSource"/>
 	</bean>
 
-    <!-- 事务配置 给mybatis加事务，和spring-hibernate.xml中的二选其一
+    <!-- 事务配置 给mybatis加事务-->
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="proxyDataSource" />
     </bean>
-    -->
+    
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>

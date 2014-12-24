@@ -7,13 +7,6 @@ import com.somnus.base.domain.TrnTransaction;
 import com.somnus.support.exceptions.BizException;
 import com.somnus.support.jms.AbstractJmsReceiveTemplate;
 
-
-/**
- * 收单交易异步记账处理
- * 
- * @author IH745
- * @version 1.0 13-10-11
- */
 public class IncomeAction extends AbstractJmsReceiveTemplate {
 
 	protected Logger log = LoggerFactory.getLogger(this.getClass());

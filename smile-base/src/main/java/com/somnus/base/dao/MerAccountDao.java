@@ -5,12 +5,6 @@ import java.util.List;
 import com.somnus.base.domain.MerAccount;
 import com.somnus.support.mybatis.annotation.MyBatisRepository;
 
-
-/**
- * 交易账户DAO
- * @author bo.zhang
- *
- */
 @MyBatisRepository
 public interface MerAccountDao {
 	

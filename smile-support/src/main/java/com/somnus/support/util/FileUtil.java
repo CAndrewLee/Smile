@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.somnus.support.util;
 
 import java.io.BufferedReader;
@@ -8,7 +5,6 @@ import java.io.FileReader;
 
 /**   
  * @Title: FileUtil
- * @Package: com.ips.core.bacs.common.util
  * @Description: TODO
  * @author: cjliu
  * @date: 2012-9-21下午1:53:20

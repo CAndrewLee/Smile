@@ -5,7 +5,6 @@ import java.util.Date;
 import com.somnus.base.domain.TrnTransaction;
 import com.somnus.support.util.DateUtil;
 
-
 public class CommonTransfer {
 
 	public static void initial(TrnTransaction trntransaction){

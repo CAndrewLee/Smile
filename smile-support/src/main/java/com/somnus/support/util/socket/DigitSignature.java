@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 /**
  * 对数据进行签名、验签
- * @author 刘军<br>
  * 2014-7-28
  */
 @Component

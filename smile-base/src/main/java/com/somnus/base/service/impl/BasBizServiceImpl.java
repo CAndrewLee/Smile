@@ -2,8 +2,6 @@ package com.somnus.base.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,24 +18,17 @@ import com.somnus.base.service.BasBizService;
 import com.somnus.support.common.MsgCodeList;
 import com.somnus.support.exceptions.BizException;
 
-
-/**
- * 
- * @author IH745
- * @date 2013-10-09
- * 
- */
 @Service
 public class BasBizServiceImpl implements BasBizService {
 
     private final Logger          log = LoggerFactory.getLogger(this.getClass());
-    @Resource
+    @Autowired
     private MessageSourceAccessor msa;
-    @Resource
+    @Autowired
     private TrnTransactionDao     trnTransactionDao;
-    @Resource
+    @Autowired
     private MerAccountCache       merAccountCache;
-    @Resource
+    @Autowired
     private MerAccountDao         merAccountDao;
 
     @Override

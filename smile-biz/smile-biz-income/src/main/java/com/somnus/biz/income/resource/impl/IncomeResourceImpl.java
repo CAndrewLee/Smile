@@ -32,13 +32,6 @@ import com.somnus.message.account.AccountResponse;
 import com.somnus.message.account.IncomeRequest;
 import com.somnus.support.exceptions.BizException;
 
-
-/**
- * 银行卡收单和撤销冲正记账
- * 
- * @author IH745
- * @version 1.0 13-10-9
- */
 @Component
 @Validated
 @Path("/com.somnus.biz.income.resource.IncomeResource")

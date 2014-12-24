@@ -19,14 +19,6 @@ import com.somnus.support.exceptions.BizException;
 import com.somnus.support.holder.ApplicationContextHolder;
 import com.somnus.support.util.ValidateUtil;
 
-
-/**
- * @className:CheckUtil
- * @Description:校验类
- * @author shellshen modify by caobin
- * @date:2012-8-16下午2:14:03
- * 
- */
 public class CheckUtil {
 	/**
 	 * @Title:mustEmpty

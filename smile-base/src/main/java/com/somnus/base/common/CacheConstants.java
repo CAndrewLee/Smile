@@ -9,12 +9,6 @@
  */
 package com.somnus.base.common;
 
-/**
- * CacheConstants
- *
- * @author levis
- * @version 1.0 13-9-26
- */
 public final class CacheConstants {
 
     public final static String CACHE_MERACCOUNT="cache.bacs.meraccount";

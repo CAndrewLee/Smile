@@ -9,12 +9,6 @@
  */
 package com.somnus.base.common;
 
-/**
- * BasConstants
- * 
- * @author IH745
- * @version 1.0 13-10-08
- */
 public class BasConstants {
 	
 	/**出款标志-风控允许出款*/
