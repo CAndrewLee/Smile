@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amq="http://activemq.apache.org/schema/core"
+       xsi:schemaLocation="
+     http://www.springframework.org/schema/beans   
+     http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="connectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <property name="targetConnectionFactory" ref="jmsConnectionFactory" />
+        <property name="sessionCacheSize" value="${jms.caching.factory.sessionCacheSize}" />
+    </bean>
+
+    <!-- 配置activemq connectionFactory -->
+    <bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="${jms.brokerUrl}" />
+        <property name="useAsyncSend" value="true" />
+        <property name="copyMessageOnSend" value="false"/>
+        <property name="optimizeAcknowledge" value="true"/>
+    </bean>
+
+    <!-- Spring JMS Template -->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory">
+            <ref local="connectionFactory" />
+        </property>
+        <property name="pubSubDomain" value="false" />
+    </bean>
+
+</beans> 

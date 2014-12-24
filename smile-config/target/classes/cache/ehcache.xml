@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 启动不检查更新 -->
+<ehcache updateCheck="false">
+		
+	<!-- 全局默认cache配置 -->
+	<defaultCache overflowToDisk="true" eternal="false"
+		maxElementsInMemory="1000" timeToIdleSeconds="120" timeToLiveSeconds="120" />
+
+	<!--必须属性：
+	name:设置缓存的名称，用于标志缓存,惟一
+	maxElementsInMemory:在内存中最大的对象数量
+	maxElementsOnDisk：在DiskStore中的最大对象数量，如为0，则没有限制
+	eternal：设置元素是否永久的，如果为永久，则timeout忽略
+	overflowToDisk：是否当memory中的数量达到限制后，保存到Disk
+
+	可选的属性：
+	timeToIdleSeconds：设置元素过期前的空闲时间
+	timeToLiveSeconds：设置元素过期前的活动时间
+	diskPersistent：是否disk store在虚拟机启动时持久化。默认为false
+	diskExpiryThreadIntervalSeconds:运行disk终结线程的时间，默认为120秒
+	memoryStoreEvictionPolicy：策略关于Eviction  -->
+	
+	<!-- 样例信息缓存
+	<cache name="cache.bacs.sample"
+      maxEntriesLocalHeap="10000"
+      eternal="false"
+      timeToIdleSeconds="3600"
+      overflowToDisk="false"
+      memoryStoreEvictionPolicy="LRU">
+	</cache>
+	-->
+	
+	<!-- 商户账户-->
+	<cache name="cache.somnus.meraccount"
+      maxEntriesLocalHeap="10000"
+      eternal="false"
+      timeToIdleSeconds="43200"
+      overflowToDisk="false"
+      memoryStoreEvictionPolicy="LRU">
+	</cache>
+	
+</ehcache>

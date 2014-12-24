@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xmlns:context="http://www.springframework.org/schema/context"
+			xmlns:aop="http://www.springframework.org/schema/aop" 
+			xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd ">
+	
+     <!-- 设置使用注解的类所在的jar包 -->
+	<context:component-scan base-package="com.somnus" use-default-filters="false">
+		<!-- 扫描符合@Component @Service @Repository的类 -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component" />
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
+	</context:component-scan>
+	
+    <!-- application 上下文 -->
+    <bean class="com.somnus.support.holder.ApplicationContextHolder"/>
+    
+    <!-- velocity 配置-->
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="resourceLoaderPath">
+            <value>classpath:template</value>
+        </property>
+        <property name="velocityProperties">
+            <props>
+                <prop key="resource.loader">class</prop>
+                <prop key="class.resource.loader.class">org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader</prop>
+                <prop key="input.encoding">UTF-8</prop>
+                <prop key="output.encoding">UTF-8</prop>
+                <prop key="default.contentType">text/html; charset=UTF-8</prop>
+                <prop key="runtime.references.strict">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <import resource="classpath:/spring-aspect.xml"/>
+    <import resource="classpath:/spring-env.xml"/>
+    <import resource="classpath:/spring-resource-db.xml"/>
+    <import resource="classpath:/spring-hibernate.xml"/>	
+    <import resource="classpath:/spring-mybatis.xml"/>
+    <import resource="classpath:/spring-beanvalidation.xml" />
+    <import resource="classpath*:/jms/spring-*.xml" />
+    <import resource="classpath:/spring-cache.xml"/>
+    <import resource="classpath:/msg/spring-message.xml" />
+    <import resource="classpath*:META-INF/spring-common.xml"/>
+</beans>

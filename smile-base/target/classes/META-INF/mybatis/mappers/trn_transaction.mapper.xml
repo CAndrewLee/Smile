@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.somnus.base.dao.TrnTransactionDao">
+  <resultMap id="BaseResultMap" type="com.somnus.base.domain.TrnTransaction" >
+    <id column="ACC_TRAN_NO" property="accTranNo" jdbcType="VARCHAR" />
+    <result column="SYS_CODE" property="sysCode" jdbcType="VARCHAR" />
+    <result column="MACHINE_NO" property="machineNo" jdbcType="VARCHAR" />
+    <result column="CHANNEL_NO" property="channelNo" jdbcType="VARCHAR" />
+    <result column="TERMINAL_NO" property="terminalNo" jdbcType="VARCHAR" />
+    <result column="TRAN_CODE" property="tranCode" jdbcType="VARCHAR" />
+    <result column="IPS_BILL_NO" property="ipsBillNo" jdbcType="VARCHAR" />
+    <result column="APP_TRAN_NO" property="appTranNo" jdbcType="VARCHAR" />
+    <result column="APP_BATCH_NO" property="appBatchNo" jdbcType="VARCHAR" />
+    <result column="CUS_TRAN_NO" property="cusTranNo" jdbcType="VARCHAR" />
+    <result column="CHL_TRAN_NO" property="chlTranNo" jdbcType="VARCHAR" />
+    <result column="INITIATOR_FLG" property="initiatorFlg" jdbcType="CHAR" />
+    <result column="PAYEE_CODE" property="payeeCode" jdbcType="VARCHAR" />
+    <result column="PAYEE_ACC_CODE" property="payeeAccCode" jdbcType="VARCHAR" />
+    <result column="PAYEE_TYPE" property="payeeType" jdbcType="CHAR" />
+    <result column="PAYEE_REL_SUB_CODE" property="payeeRelSubCode" jdbcType="VARCHAR" />
+    <result column="PAYER_CODE" property="payerCode" jdbcType="VARCHAR" />
+    <result column="PAYER_ACC_CODE" property="payerAccCode" jdbcType="VARCHAR" />
+    <result column="PAYER_TYPE" property="payerType" jdbcType="CHAR" />
+    <result column="PAYER_REL_SUB_CODE" property="payerRelSubCode" jdbcType="VARCHAR" />
+    <result column="SUPPLIER_CODE" property="supplierCode" jdbcType="VARCHAR" />
+    <result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" />
+    <result column="CCY_CODE" property="ccyCode" jdbcType="VARCHAR" />
+    <result column="TRAN_AMT" property="tranAmt" jdbcType="DECIMAL" />
+    <result column="ORD_AMT" property="ordAmt" jdbcType="DECIMAL" />
+    <result column="IS_FEE" property="isFee" jdbcType="CHAR" />
+    <result column="FEE_AMT" property="feeAmt" jdbcType="DECIMAL" />
+    <result column="FEE_TYPE" property="feeType" jdbcType="CHAR" />
+    <result column="FEE_RATE" property="feeRate" jdbcType="DECIMAL" />
+    <result column="FEE_FLAG" property="feeFlag" jdbcType="CHAR" />
+    <result column="FEE_STL_MODE" property="feeStlMode" jdbcType="CHAR" />
+    <result column="THIRD_ACC_CODE" property="thirdAccCode" jdbcType="VARCHAR" />
+    <result column="REFUND_FEE_BK" property="refundFeeBk" jdbcType="CHAR" />
+    <result column="BANK_ACC_CODE" property="bankAccCode" jdbcType="VARCHAR" />
+    <result column="BANK_COST" property="bankCost" jdbcType="DECIMAL" />
+    <result column="BANK_FEE_TYPE" property="bankFeeType" jdbcType="CHAR" />
+    <result column="BANK_FEE_RATE" property="bankFeeRate" jdbcType="DECIMAL" />
+    <result column="APP_TRAN_DATE" property="appTranDate" jdbcType="TIMESTAMP" />
+    <result column="SUBMIT_TIME" property="submitTime" jdbcType="TIMESTAMP" />
+    <result column="FINNISH_TIME" property="finnishTime" jdbcType="TIMESTAMP" />
+    <result column="TRAN_REMARK" property="tranRemark" jdbcType="VARCHAR" />
+    <result column="PRD_CODE" property="prdCode" jdbcType="VARCHAR" />
+    <result column="TRAN_TYPE" property="tranType" jdbcType="VARCHAR" />
+    <result column="ACC_DATE" property="accDate" jdbcType="DATE" />
+    <result column="IS_DEPOSIT" property="isDeposit" jdbcType="CHAR" />
+    <result column="SECURITY_DEPOSIT" property="securityDeposit" jdbcType="DECIMAL" />
+    <result column="DEPOSIT_REFUND_DATE" property="depositRefundDate" jdbcType="DATE" />
+    <result column="DEPOSIT_STATUS" property="depositStatus" jdbcType="CHAR" />
+    <result column="EST_ACC_TIME" property="estAccTime" jdbcType="TIMESTAMP" />
+    <result column="ACC_MODE" property="accMode" jdbcType="CHAR" />
+    <result column="ACC_STATUS" property="accStatus" jdbcType="CHAR" />
+    <result column="FROZEN_FLAG" property="frozenFlag" jdbcType="CHAR" />
+    <result column="STATUS" property="status" jdbcType="CHAR" />
+    <result column="BLN_MODE" property="blnMode" jdbcType="CHAR" />
+    <result column="BLN_STATUS" property="blnStatus" jdbcType="CHAR" />
+    <result column="CAN_BLN_DATE" property="canBlnDate" jdbcType="DATE" />
+    <result column="BLN_DATE" property="blnDate" jdbcType="DATE" />
+    <result column="ERR_MSG" property="errMsg" jdbcType="VARCHAR" />
+    <result column="VOUCHER_NO" property="voucherNo" jdbcType="VARCHAR" />
+    <result column="ORI_APP_TRAN_NO" property="oriAppTranNo" jdbcType="VARCHAR" />
+    <result column="RESV1" property="resv1" jdbcType="VARCHAR" />
+    <result column="RESV2" property="resv2" jdbcType="VARCHAR" />
+    <result column="RESV3" property="resv3" jdbcType="VARCHAR" />
+    <result column="RESV4" property="resv4" jdbcType="VARCHAR" />
+    <result column="RESV5" property="resv5" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+    <result column="CREATE_BY" property="createBy" jdbcType="VARCHAR" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="VARCHAR" />
+    <result column="MODIFY_BY" property="modifyBy" jdbcType="VARCHAR" />
+    <result column="REFUNDED_AMT" property="refundedAmt" jdbcType="DECIMAL" />
+    <result column="DISHONORED_AMT" property="dishonoredAmt" jdbcType="DECIMAL" />
+    <result column="RETURNED_DEPOSIT_AMT" property="returnedDepositAmt" jdbcType="DECIMAL" />
+   </resultMap>
+   
+	
+   
+   
+	<select id="selectByAppTranNo" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from
+		TCOR_TRN_TRANSACTION
+		where APP_TRAN_NO =#{appTranNo,jdbcType=VARCHAR}
+	</select>
+	<select id="selectSuccessTranByAppTranNo" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from
+		TCOR_TRN_TRANSACTION
+		where APP_TRAN_NO =#{appTranNo,jdbcType=VARCHAR}
+		and ACC_STATUS = '1'
+	</select>
+	
+	<select id="selectByOrgAppTranNoAndTranCode" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from
+		TCOR_TRN_TRANSACTION
+		where ORI_APP_TRAN_NO =#{oriAppTranNo,jdbcType=VARCHAR}
+		<if test="tranCode != null and tranCode != '' ">
+		and TRAN_CODE=#{tranCode,jdbcType=VARCHAR}
+		</if>
+		and ACC_STATUS = '1'
+	</select>
+	
+	<select id="selectByAccTranNo" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from
+		TCOR_TRN_TRANSACTION
+		where ACC_TRAN_NO
+		=#{accTranNo,jdbcType=VARCHAR}
+	</select>
+
+	<sql id="Base_Column_List" >
+    ACC_TRAN_NO, SYS_CODE, MACHINE_NO, CHANNEL_NO, TERMINAL_NO,TRAN_CODE, IPS_BILL_NO, APP_TRAN_NO,
+    APP_BATCH_NO, CUS_TRAN_NO, CHL_TRAN_NO, PRD_CODE, TRAN_TYPE, INITIATOR_FLG, PAYEE_CODE, 
+    PAYEE_ACC_CODE, PAYEE_TYPE, PAYEE_REL_SUB_CODE, PAYER_CODE, PAYER_ACC_CODE, PAYER_TYPE, 
+    PAYER_REL_SUB_CODE, SUPPLIER_CODE, CHANNEL_CODE, CCY_CODE, TRAN_AMT, ORD_AMT, IS_FEE, 
+    FEE_AMT, FEE_TYPE, FEE_RATE, FEE_FLAG, FEE_STL_MODE, THIRD_ACC_CODE, REFUND_FEE_BK, 
+    BANK_ACC_CODE, BANK_COST, BANK_FEE_TYPE, BANK_FEE_RATE, APP_TRAN_DATE, SUBMIT_TIME, 
+    FINNISH_TIME, ACC_DATE, IS_DEPOSIT, SECURITY_DEPOSIT, DEPOSIT_REFUND_DATE, DEPOSIT_STATUS, 
+    RETURNED_DEPOSIT_AMT, REFUNDED_AMT, DISHONORED_AMT, EST_ACC_TIME, ACC_MODE, ACC_STATUS,FROZEN_FLAG,
+    STATUS, BLN_MODE, BLN_STATUS, CAN_BLN_DATE, BLN_DATE, ERR_MSG, VOUCHER_NO, ORI_APP_TRAN_NO, 
+    TRAN_REMARK, RESV1, RESV2, RESV3, RESV4, RESV5, CREATE_TIME, CREATE_BY, MODIFY_TIME, 
+    MODIFY_BY
+  </sql>
+	<sql id="where_condition">
+		<where>
+			<trim prefix="(" suffix=")" prefixOverrides="and | AND">
+				<if test="ipsBillNo != null and ipsBillNo != '' ">
+					and IPS_BILL_NO = #{ipsBillNo,jdbcType=VARCHAR}
+				</if>
+				<if test="appTranNo != null and appTranNo != '' ">
+					and APP_TRAN_NO like #{appTranNo,jdbcType=VARCHAR}||'%'
+				</if>
+				<if test="supplierCode != null and supplierCode != '' ">
+					and SUPPLIER_CODE = #{supplierCode,jdbcType=VARCHAR}
+				</if>
+				<if test="channelCode != null and channelCode != '' ">
+					and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+				</if>
+				<if test="ccyCode != null and ccyCode != '' ">
+					and CCY_CODE = #{ccyCode,jdbcType=VARCHAR}
+				</if>
+				<if test="tranAmt != null">
+					and TRAN_AMT = #{tranAmt,jdbcType=DECIMAL}
+				</if>
+				<if test="feeAmt != null">
+					and FEE_AMT = #{feeAmt,jdbcType=DECIMAL}
+				</if>
+				<if test="prdCode != null and prdCode != '' ">
+					and PRD_CODE = #{prdCode,jdbcType=VARCHAR}
+				</if>
+				<if test="tranType != null and tranType != '' ">
+					and TRAN_TYPE = #{tranType,jdbcType=VARCHAR}
+				</if>
+				<if test="submitAccDate != null and submitAccDate != '' ">
+					and SUBMIT_ACC_DATE = #{submitAccDate,jdbcType=VARCHAR}
+				</if>
+				<if test="accStatus != null and accStatus != '' ">
+					and ACC_STATUS = #{accStatus,jdbcType=CHAR}
+				</if>
+			</trim>
+		</where>
+	</sql>
+	<select id="selectByTranNoForUpdate" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from TCOR_TRN_TRANSACTION
+		where ACC_TRAN_NO =
+		#{accTranNo,jdbcType=VARCHAR}
+		for update
+	</select>
+
+
+
+	<select id="select" resultMap="BaseResultMap"
+		parameterType="com.somnus.base.domain.TrnTransaction">
+		select
+		<include refid="Base_Column_List" />
+		from TCOR_TRN_TRANSACTION
+		<include refid="where_condition" />
+	</select>
+
+	<insert id="insertNoSerq" parameterType="com.somnus.base.domain.TrnTransaction">
+		 insert into TCOR_TRN_TRANSACTION (ACC_TRAN_NO, SYS_CODE, MACHINE_NO, 
+      CHANNEL_NO, TERMINAL_NO,TRAN_CODE, IPS_BILL_NO,
+      APP_TRAN_NO, APP_BATCH_NO, CUS_TRAN_NO, 
+      CHL_TRAN_NO, PRD_CODE, TRAN_TYPE, 
+      INITIATOR_FLG, PAYEE_CODE, PAYEE_ACC_CODE, 
+      PAYEE_TYPE, PAYEE_REL_SUB_CODE, PAYER_CODE, 
+      PAYER_ACC_CODE, PAYER_TYPE, PAYER_REL_SUB_CODE, 
+      SUPPLIER_CODE, CHANNEL_CODE, CCY_CODE, 
+      TRAN_AMT, ORD_AMT, IS_FEE, 
+      FEE_AMT, FEE_TYPE, FEE_RATE, 
+      FEE_FLAG, FEE_STL_MODE, THIRD_ACC_CODE, 
+      REFUND_FEE_BK, BANK_ACC_CODE, BANK_COST, 
+      BANK_FEE_TYPE, BANK_FEE_RATE, APP_TRAN_DATE, 
+      SUBMIT_TIME, FINNISH_TIME, ACC_DATE, 
+      IS_DEPOSIT, SECURITY_DEPOSIT, DEPOSIT_REFUND_DATE, 
+      DEPOSIT_STATUS, RETURNED_DEPOSIT_AMT, REFUNDED_AMT, 
+      DISHONORED_AMT, EST_ACC_TIME, ACC_MODE, 
+      ACC_STATUS,FROZEN_FLAG, STATUS, BLN_MODE,
+      BLN_STATUS, CAN_BLN_DATE, BLN_DATE, 
+      ERR_MSG, VOUCHER_NO, ORI_APP_TRAN_NO, 
+      TRAN_REMARK, RESV1, RESV2, 
+      RESV3, RESV4, RESV5, 
+      CREATE_TIME, CREATE_BY, MODIFY_TIME, 
+      MODIFY_BY)
+    values (#{accTranNo,jdbcType=VARCHAR}, #{sysCode,jdbcType=VARCHAR}, #{machineNo,jdbcType=VARCHAR}, 
+      #{channelNo,jdbcType=VARCHAR}, #{terminalNo,jdbcType=VARCHAR},#{tranCode,jdbcType=VARCHAR}, #{ipsBillNo,jdbcType=VARCHAR},
+      #{appTranNo,jdbcType=VARCHAR}, #{appBatchNo,jdbcType=VARCHAR}, #{cusTranNo,jdbcType=VARCHAR}, 
+      #{chlTranNo,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, #{tranType,jdbcType=VARCHAR}, 
+      #{initiatorFlg,jdbcType=CHAR}, #{payeeCode,jdbcType=VARCHAR}, #{payeeAccCode,jdbcType=VARCHAR}, 
+      #{payeeType,jdbcType=CHAR}, #{payeeRelSubCode,jdbcType=VARCHAR}, #{payerCode,jdbcType=VARCHAR}, 
+      #{payerAccCode,jdbcType=VARCHAR}, #{payerType,jdbcType=CHAR}, #{payerRelSubCode,jdbcType=VARCHAR}, 
+      #{supplierCode,jdbcType=VARCHAR}, #{channelCode,jdbcType=VARCHAR}, #{ccyCode,jdbcType=VARCHAR}, 
+      #{tranAmt,jdbcType=DECIMAL}, #{ordAmt,jdbcType=DECIMAL}, #{isFee,jdbcType=CHAR}, 
+      #{feeAmt,jdbcType=DECIMAL}, #{feeType,jdbcType=CHAR}, #{feeRate,jdbcType=DECIMAL}, 
+      #{feeFlag,jdbcType=CHAR}, #{feeStlMode,jdbcType=CHAR}, #{thirdAccCode,jdbcType=VARCHAR}, 
+      #{refundFeeBk,jdbcType=CHAR}, #{bankAccCode,jdbcType=VARCHAR}, #{bankCost,jdbcType=DECIMAL}, 
+      #{bankFeeType,jdbcType=CHAR}, #{bankFeeRate,jdbcType=DECIMAL}, #{appTranDate,jdbcType=TIMESTAMP}, 
+      #{submitTime,jdbcType=TIMESTAMP}, #{finnishTime,jdbcType=TIMESTAMP}, #{accDate,jdbcType=DATE}, 
+      #{isDeposit,jdbcType=CHAR}, #{securityDeposit,jdbcType=DECIMAL}, #{depositRefundDate,jdbcType=DATE}, 
+      #{depositStatus,jdbcType=CHAR}, #{returnedDepositAmt,jdbcType=DECIMAL}, #{refundedAmt,jdbcType=DECIMAL}, 
+      #{dishonoredAmt,jdbcType=DECIMAL}, #{estAccTime,jdbcType=DATE}, #{accMode,jdbcType=CHAR}, 
+      #{accStatus,jdbcType=CHAR},#{frozenFlag,jdbcType=CHAR}, #{status,jdbcType=CHAR}, #{blnMode,jdbcType=CHAR},
+      #{blnStatus,jdbcType=CHAR}, #{canBlnDate,jdbcType=DATE}, #{blnDate,jdbcType=DATE}, 
+      #{errMsg,jdbcType=VARCHAR}, #{voucherNo,jdbcType=VARCHAR}, #{oriAppTranNo,jdbcType=VARCHAR}, 
+      #{tranRemark,jdbcType=VARCHAR}, #{resv1,jdbcType=VARCHAR}, #{resv2,jdbcType=VARCHAR}, 
+      #{resv3,jdbcType=VARCHAR}, #{resv4,jdbcType=VARCHAR}, #{resv5,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{modifyTime,jdbcType=VARCHAR}, 
+      #{modifyBy,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insert" parameterType="com.somnus.base.domain.TrnTransaction">
+		 insert into TCOR_TRN_TRANSACTION (ACC_TRAN_NO, SYS_CODE, MACHINE_NO, 
+      CHANNEL_NO, TERMINAL_NO,TRAN_CODE, IPS_BILL_NO,
+      APP_TRAN_NO, APP_BATCH_NO, CUS_TRAN_NO, 
+      CHL_TRAN_NO, PRD_CODE, TRAN_TYPE, 
+      INITIATOR_FLG, PAYEE_CODE, PAYEE_ACC_CODE, 
+      PAYEE_TYPE, PAYEE_REL_SUB_CODE, PAYER_CODE, 
+      PAYER_ACC_CODE, PAYER_TYPE, PAYER_REL_SUB_CODE, 
+      SUPPLIER_CODE, CHANNEL_CODE, CCY_CODE, 
+      TRAN_AMT, ORD_AMT, IS_FEE, 
+      FEE_AMT, FEE_TYPE, FEE_RATE, 
+      FEE_FLAG, FEE_STL_MODE, THIRD_ACC_CODE, 
+      REFUND_FEE_BK, BANK_ACC_CODE, BANK_COST, 
+      BANK_FEE_TYPE, BANK_FEE_RATE, APP_TRAN_DATE, 
+      SUBMIT_TIME, FINNISH_TIME, ACC_DATE, 
+      IS_DEPOSIT, SECURITY_DEPOSIT, DEPOSIT_REFUND_DATE, 
+      DEPOSIT_STATUS, RETURNED_DEPOSIT_AMT, REFUNDED_AMT, 
+      DISHONORED_AMT, EST_ACC_TIME, ACC_MODE, 
+      ACC_STATUS,FROZEN_FLAG, STATUS, BLN_MODE,
+      BLN_STATUS, CAN_BLN_DATE, BLN_DATE, 
+      ERR_MSG, VOUCHER_NO, ORI_APP_TRAN_NO, 
+      TRAN_REMARK, RESV1, RESV2, 
+      RESV3, RESV4, RESV5, 
+      CREATE_TIME, CREATE_BY, MODIFY_TIME, 
+      MODIFY_BY)
+    values (#{accTranNo,jdbcType=VARCHAR}, #{sysCode,jdbcType=VARCHAR}, #{machineNo,jdbcType=VARCHAR}, 
+      #{channelNo,jdbcType=VARCHAR}, #{terminalNo,jdbcType=VARCHAR},#{tranCode,jdbcType=VARCHAR}, #{ipsBillNo,jdbcType=VARCHAR},
+      #{appTranNo,jdbcType=VARCHAR}, #{appBatchNo,jdbcType=VARCHAR}, #{cusTranNo,jdbcType=VARCHAR}, 
+      #{chlTranNo,jdbcType=VARCHAR}, #{prdCode,jdbcType=VARCHAR}, #{tranType,jdbcType=VARCHAR}, 
+      #{initiatorFlg,jdbcType=CHAR}, #{payeeCode,jdbcType=VARCHAR}, #{payeeAccCode,jdbcType=VARCHAR}, 
+      #{payeeType,jdbcType=CHAR}, #{payeeRelSubCode,jdbcType=VARCHAR}, #{payerCode,jdbcType=VARCHAR}, 
+      #{payerAccCode,jdbcType=VARCHAR}, #{payerType,jdbcType=CHAR}, #{payerRelSubCode,jdbcType=VARCHAR}, 
+      #{supplierCode,jdbcType=VARCHAR}, #{channelCode,jdbcType=VARCHAR}, #{ccyCode,jdbcType=VARCHAR}, 
+      #{tranAmt,jdbcType=DECIMAL}, #{ordAmt,jdbcType=DECIMAL}, #{isFee,jdbcType=CHAR}, 
+      #{feeAmt,jdbcType=DECIMAL}, #{feeType,jdbcType=CHAR}, #{feeRate,jdbcType=DECIMAL}, 
+      #{feeFlag,jdbcType=CHAR}, #{feeStlMode,jdbcType=CHAR}, #{thirdAccCode,jdbcType=VARCHAR}, 
+      #{refundFeeBk,jdbcType=CHAR}, #{bankAccCode,jdbcType=VARCHAR}, #{bankCost,jdbcType=DECIMAL}, 
+      #{bankFeeType,jdbcType=CHAR}, #{bankFeeRate,jdbcType=DECIMAL}, #{appTranDate,jdbcType=TIMESTAMP}, 
+      #{submitTime,jdbcType=TIMESTAMP}, #{finnishTime,jdbcType=TIMESTAMP}, #{accDate,jdbcType=DATE}, 
+      #{isDeposit,jdbcType=CHAR}, #{securityDeposit,jdbcType=DECIMAL}, #{depositRefundDate,jdbcType=DATE}, 
+      #{depositStatus,jdbcType=CHAR}, #{returnedDepositAmt,jdbcType=DECIMAL}, #{refundedAmt,jdbcType=DECIMAL}, 
+      #{dishonoredAmt,jdbcType=DECIMAL}, #{estAccTime,jdbcType=DATE}, #{accMode,jdbcType=CHAR}, 
+      #{accStatus,jdbcType=CHAR},#{frozenFlag,jdbcType=CHAR}, #{status,jdbcType=CHAR}, #{blnMode,jdbcType=CHAR},
+      #{blnStatus,jdbcType=CHAR}, #{canBlnDate,jdbcType=DATE}, #{blnDate,jdbcType=DATE}, 
+      #{errMsg,jdbcType=VARCHAR}, #{voucherNo,jdbcType=VARCHAR}, #{oriAppTranNo,jdbcType=VARCHAR}, 
+      #{tranRemark,jdbcType=VARCHAR}, #{resv1,jdbcType=VARCHAR}, #{resv2,jdbcType=VARCHAR}, 
+      #{resv3,jdbcType=VARCHAR}, #{resv4,jdbcType=VARCHAR}, #{resv5,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{modifyTime,jdbcType=VARCHAR}, 
+      #{modifyBy,jdbcType=VARCHAR})
+	</insert>
+
+	<update id="update" parameterType="com.somnus.base.domain.TrnTransaction">
+		update TCOR_TRN_TRANSACTION
+    <set >
+      <if test="sysCode != null" >
+        SYS_CODE = #{sysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="machineNo != null" >
+        MACHINE_NO = #{machineNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNo != null" >
+        CHANNEL_NO = #{channelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalNo != null" >
+        TERMINAL_NO = #{terminalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tranCode != null" >
+        TRAN_CODE = #{tranCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ipsBillNo != null" >
+        IPS_BILL_NO = #{ipsBillNo,jdbcType=VARCHAR},
+      </if>
+      <if test="appTranNo != null" >
+        APP_TRAN_NO = #{appTranNo,jdbcType=VARCHAR},
+      </if>
+      <if test="appBatchNo != null" >
+        APP_BATCH_NO = #{appBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cusTranNo != null" >
+        CUS_TRAN_NO = #{cusTranNo,jdbcType=VARCHAR},
+      </if>
+      <if test="chlTranNo != null" >
+        CHL_TRAN_NO = #{chlTranNo,jdbcType=VARCHAR},
+      </if>
+      <if test="initiatorFlg != null" >
+        INITIATOR_FLG = #{initiatorFlg,jdbcType=CHAR},
+      </if>
+      <if test="payeeCode != null" >
+        PAYEE_CODE = #{payeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAccCode != null" >
+        PAYEE_ACC_CODE = #{payeeAccCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeType != null" >
+        PAYEE_TYPE = #{payeeType,jdbcType=CHAR},
+      </if>
+      <if test="payeeRelSubCode != null" >
+        PAYEE_REL_SUB_CODE = #{payeeRelSubCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payerCode != null" >
+        PAYER_CODE = #{payerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payerAccCode != null" >
+        PAYER_ACC_CODE = #{payerAccCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payerType != null" >
+        PAYER_TYPE = #{payerType,jdbcType=CHAR},
+      </if>
+      <if test="payerRelSubCode != null" >
+        PAYER_REL_SUB_CODE = #{payerRelSubCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCode != null" >
+        SUPPLIER_CODE = #{supplierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCode != null" >
+        CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ccyCode != null" >
+        CCY_CODE = #{ccyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tranAmt != null" >
+        TRAN_AMT = #{tranAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ordAmt != null" >
+        ORD_AMT = #{ordAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="isFee != null" >
+        IS_FEE = #{isFee,jdbcType=CHAR},
+      </if>
+      <if test="feeAmt != null" >
+        FEE_AMT = #{feeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="feeType != null" >
+        FEE_TYPE = #{feeType,jdbcType=CHAR},
+      </if>
+      <if test="feeRate != null" >
+        FEE_RATE = #{feeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="feeFlag != null" >
+        FEE_FLAG = #{feeFlag,jdbcType=CHAR},
+      </if>
+      <if test="feeStlMode != null" >
+        FEE_STL_MODE = #{feeStlMode,jdbcType=CHAR},
+      </if>
+      <if test="thirdAccCode != null" >
+        THIRD_ACC_CODE = #{thirdAccCode,jdbcType=VARCHAR},
+      </if>
+      <if test="refundFeeBk != null" >
+        REFUND_FEE_BK = #{refundFeeBk,jdbcType=CHAR},
+      </if>
+      <if test="bankAccCode != null" >
+        BANK_ACC_CODE = #{bankAccCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCost != null" >
+        BANK_COST = #{bankCost,jdbcType=DECIMAL},
+      </if>
+      <if test="bankFeeType != null" >
+        BANK_FEE_TYPE = #{bankFeeType,jdbcType=CHAR},
+      </if>
+      <if test="bankFeeRate != null" >
+        BANK_FEE_RATE = #{bankFeeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="appTranDate != null" >
+        APP_TRAN_DATE = #{appTranDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="submitTime != null" >
+        SUBMIT_TIME = #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finnishTime != null" >
+        FINNISH_TIME = #{finnishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tranRemark != null" >
+        TRAN_REMARK = #{tranRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="prdCode != null" >
+        PRD_CODE = #{prdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tranType != null" >
+        TRAN_TYPE = #{tranType,jdbcType=VARCHAR},
+      </if>
+      <if test="accDate != null" >
+        ACC_DATE = #{accDate,jdbcType=DATE},
+      </if>
+      <if test="isDeposit != null" >
+        IS_DEPOSIT = #{isDeposit,jdbcType=CHAR},
+      </if>
+      <if test="securityDeposit != null" >
+        SECURITY_DEPOSIT = #{securityDeposit,jdbcType=DECIMAL},
+      </if>
+      <if test="depositRefundDate != null" >
+        DEPOSIT_REFUND_DATE = #{depositRefundDate,jdbcType=DATE},
+      </if>
+      <if test="depositStatus != null" >
+        DEPOSIT_STATUS = #{depositStatus,jdbcType=CHAR},
+      </if>
+      <if test="estAccTime != null" >
+        EST_ACC_TIME = #{estAccTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accMode != null" >
+        ACC_MODE = #{accMode,jdbcType=CHAR},
+      </if>
+      <if test="accStatus != null" >
+        ACC_STATUS = #{accStatus,jdbcType=CHAR},
+      </if>
+      <if test="frozenFlag != null" >
+        FROZEN_FLAG = #{frozenFlag,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="blnMode != null" >
+        BLN_MODE = #{blnMode,jdbcType=CHAR},
+      </if>
+      <if test="blnStatus != null" >
+        BLN_STATUS = #{blnStatus,jdbcType=CHAR},
+      </if>
+      <if test="canBlnDate != null" >
+        CAN_BLN_DATE = #{canBlnDate,jdbcType=DATE},
+      </if>
+      <if test="blnDate != null" >
+        BLN_DATE = #{blnDate,jdbcType=DATE},
+      </if>
+      <if test="errMsg != null" >
+        ERR_MSG = #{errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME = #{modifyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyBy != null" >
+        MODIFY_BY = #{modifyBy,jdbcType=VARCHAR},
+      </if>
+      <if test="refundedAmt != null" >
+        REFUNDED_AMT = #{refundedAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="dishonoredAmt != null" >
+        DISHONORED_AMT = #{dishonoredAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="returnedDepositAmt != null" >
+        RETURNED_DEPOSIT_AMT = #{returnedDepositAmt,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ACC_TRAN_NO = #{accTranNo,jdbcType=VARCHAR}
+	     <if test="status != null and status=='1' and blnStatus != null" >
+	       AND BLN_STATUS = #{blnStatus,jdbcType=CHAR}
+	     </if>
+	     <if test="blnStatus != null and blnStatus=='1'" >
+	        AND STATUS ='0'
+	     </if>
+	</update>
+</mapper>

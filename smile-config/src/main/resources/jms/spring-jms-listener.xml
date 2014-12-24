@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <description>收报配置</description>
+
+    <!-- Message converter -->
+    <bean id="simpleMessageConverter" class="org.springframework.jms.support.converter.SimpleMessageConverter" />
+
+    <!-- 基类MQ消息监听器 -->
+    <bean id="parentListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer" abstract="true">
+        <property name="connectionFactory" ref="jmsConnectionFactory" />
+        <!-- Consumer 个数配置 -->
+        <property name="concurrentConsumers" value="${jms.listener.container.concurrentConsumers}" />
+        <property name="maxConcurrentConsumers" value="${jms.listener.container.maxConcurrentConsumers}" />
+        <!-- 设置消息确认模式为Client -->
+        <property name="sessionAcknowledgeModeName" value="CLIENT_ACKNOWLEDGE" />
+    </bean>
+
+    <bean id="parentMessageListener" class="com.somnus.support.jms.AbstractJmsReceiveTemplate" scope="prototype"
+          abstract="true">
+        <!-- onMessage委托给execute -->
+        <property name="defaultListenerMethod" value="onReceive" />
+        <property name="messageConverter" ref="simpleMessageConverter" />
+    </bean>
+
+</beans>

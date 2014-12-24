@@ -1,0 +1,16 @@
+#*
+*************************备付金合作银行存管账户利息报备************************************************************
+参见：《支付机构客户备付金存管系统接口说明（2014 .3）A7.doc》
+文件名格式：STL07_yyyyMMdd
+模板格式：
+机构代码合作方交易日期银行行号银行账户银行行名银行账户户名币种钞汇标示银行账户类型利息金额备用字段1备用字段2备用字段3
+
+注意：这个字符是char(21),跟在中文后面的显示效果、和跟在英文数字后面效果不一样！
+	模板文件是utf8编码的，生成的数据文件，要求是gbk编码的。
+*###
+version=2.0
+#foreach($o in $list)
+#if($o.interestBal !=0)
+$!o.orgCode$!o.tranDate$!o.bankNo$!o.bankAccNo$!o.bankName$!o.bankAccName$!o.ccyCode$!o.cashFlag$!o.bankAccType$!o.fen.interestBal$!o.resv1$!o.resv2$!o.resv3
+#end
+#end

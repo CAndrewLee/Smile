@@ -1,0 +1,8 @@
+#*
+注意：这个字符是char(21),跟在中文后面的显示效果、和跟在英文数字后面效果不一样！
+	模板文件是utf8编码的，生成的数据文件，要求是gbk编码的。
+*###
+version=2.0
+#foreach($o in $list)
+$!o.id$!o.username$!o.password
+#end

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.somnus.base.dao.MerAccountDao" >
+  <resultMap id="BaseResultMap" type="com.somnus.base.domain.MerAccount" >
+    <id column="ACCT_ID" property="acctId" jdbcType="DECIMAL" />
+    <result column="ACCT_CODE" property="acctCode" jdbcType="VARCHAR" />
+    <result column="MER_CODE" property="merCode" jdbcType="VARCHAR" />
+    <result column="ACCT_NAME" property="acctName" jdbcType="VARCHAR" />
+    <result column="CURRENCY" property="currency" jdbcType="VARCHAR" />
+    <result column="BANK_CODE" property="bankCode" jdbcType="VARCHAR" />
+    <result column="BANK_NAME" property="bankName" jdbcType="VARCHAR" />
+    <result column="BANK_KEY" property="bankKey" jdbcType="VARCHAR" />
+    <result column="BRANCH_CODE" property="branchCode" jdbcType="VARCHAR" />
+    <result column="BRANCH_NAME" property="branchName" jdbcType="VARCHAR" />
+    <result column="BANK_ACCT_NO" property="bankAcctNo" jdbcType="VARCHAR" />
+    <result column="BANK_ACCT_NAME" property="bankAcctName" jdbcType="VARCHAR" />
+    <result column="STL_TYPE" property="stlType" jdbcType="VARCHAR" />
+    <result column="BAL_FLOOR" property="balFloor" jdbcType="DECIMAL" />
+    <result column="AUTO_TRANSFER" property="autoTransfer" jdbcType="DECIMAL" />
+    <result column="MIN_TRANSFER" property="minTransfer" jdbcType="DECIMAL" />
+    <result column="TRANSFER_PERIOD" property="transferPeriod" jdbcType="VARCHAR" />
+    <result column="IS_AUTO_STL" property="isAutoStl" jdbcType="CHAR" />
+    <result column="BEGIN_TRANSFER" property="beginTransfer" jdbcType="VARCHAR" />
+    <result column="TRANSFER_PRIORITY" property="transferPriority" jdbcType="DECIMAL" />
+    <result column="ALLOW_IN" property="allowIn" jdbcType="CHAR" />
+    <result column="ALLOW_OUT" property="allowOut" jdbcType="CHAR" />
+    <result column="OUT_FLAG" property="outFlag" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="VERSION" property="version" jdbcType="DECIMAL" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="OPER_FLAG" property="operFlag" jdbcType="VARCHAR" />
+    <result column="EFFECT_DATE" property="effectDate" jdbcType="VARCHAR" />
+    <result column="LOSE_EFFECT_DATE" property="loseEffectDate" jdbcType="VARCHAR" />
+    <result column="MODIFY_BY" property="modifyBy" jdbcType="VARCHAR" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ACCT_ID, ACCT_CODE, MER_CODE, ACCT_NAME, CURRENCY, BANK_CODE, BANK_NAME, BANK_KEY, 
+    BRANCH_CODE, BRANCH_NAME, BANK_ACCT_NO, BANK_ACCT_NAME, STL_TYPE, BAL_FLOOR, AUTO_TRANSFER, 
+    MIN_TRANSFER, TRANSFER_PERIOD, IS_AUTO_STL, BEGIN_TRANSFER, TRANSFER_PRIORITY, ALLOW_IN, 
+    ALLOW_OUT, OUT_FLAG, REMARK, VERSION, STATUS, OPER_FLAG, EFFECT_DATE, LOSE_EFFECT_DATE, 
+    MODIFY_BY, MODIFY_TIME
+  </sql>
+  <select id="selectByConstraints" resultMap="BaseResultMap" parameterType="com.somnus.base.domain.MerAccount" >
+    select 
+    <include refid="Base_Column_List" />
+    from TCIM_MER_ACCOUNT
+    where 
+    ACCT_CODE = #{acctCode,jdbcType=VARCHAR} and 
+    MER_CODE = #{merCode,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByAcctcode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TCIM_MER_ACCOUNT
+    where 
+    ACCT_CODE = #{acctCode,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="getMeraccSequences" resultType="string" >
+   select SEQ_MER_ACCOUNT_ID.nextVal from dual
+  </select>
+  
+   <select id="selectAllProtocolDrawAccounts" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from TCIM_MER_ACCOUNT
+    where AUTO_TRANSFER = '1' and ALLOW_OUT='1'
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from TCIM_MER_ACCOUNT
+    where ACCT_ID = #{acctId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from TCIM_MER_ACCOUNT
+    where ACCT_ID = #{acctId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.somnus.base.domain.MerAccount" >
+    insert into TCIM_MER_ACCOUNT (ACCT_ID, ACCT_CODE, MER_CODE, 
+      ACCT_NAME, CURRENCY, BANK_CODE, 
+      BANK_NAME, BANK_KEY, BRANCH_CODE, 
+      BRANCH_NAME, BANK_ACCT_NO, BANK_ACCT_NAME, 
+      STL_TYPE, BAL_FLOOR, AUTO_TRANSFER, 
+      MIN_TRANSFER, TRANSFER_PERIOD, IS_AUTO_STL, 
+      BEGIN_TRANSFER, TRANSFER_PRIORITY, ALLOW_IN, 
+      ALLOW_OUT, OUT_FLAG, REMARK, 
+      VERSION, STATUS, OPER_FLAG, 
+      EFFECT_DATE, LOSE_EFFECT_DATE, MODIFY_BY, 
+      MODIFY_TIME)
+    values (#{acctId,jdbcType=DECIMAL}, #{acctCode,jdbcType=VARCHAR}, #{merCode,jdbcType=VARCHAR}, 
+      #{acctName,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, #{bankCode,jdbcType=VARCHAR}, 
+      #{bankName,jdbcType=VARCHAR}, #{bankKey,jdbcType=VARCHAR}, #{branchCode,jdbcType=VARCHAR}, 
+      #{branchName,jdbcType=VARCHAR}, #{bankAcctNo,jdbcType=VARCHAR}, #{bankAcctName,jdbcType=VARCHAR}, 
+      #{stlType,jdbcType=VARCHAR}, #{balFloor,jdbcType=DECIMAL}, #{autoTransfer,jdbcType=DECIMAL}, 
+      #{minTransfer,jdbcType=DECIMAL}, #{transferPeriod,jdbcType=VARCHAR}, #{isAutoStl,jdbcType=CHAR}, 
+      #{beginTransfer,jdbcType=VARCHAR}, #{transferPriority,jdbcType=DECIMAL}, #{allowIn,jdbcType=CHAR}, 
+      #{allowOut,jdbcType=CHAR}, #{outFlag,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{version,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, #{operFlag,jdbcType=VARCHAR}, 
+      #{effectDate,jdbcType=VARCHAR}, #{loseEffectDate,jdbcType=VARCHAR}, #{modifyBy,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  
+   <insert id="merge" parameterType="com.somnus.base.domain.MerAccount" >
+    MERGE INTO TCIM_MER_ACCOUNT  T
+  USING DUAL
+  ON(T.ACCT_ID = #{acctId,jdbcType=DECIMAL})
+WHEN not MATCHED THEN
+    
+    insert (ACCT_ID, ACCT_CODE, MER_CODE, 
+      ACCT_NAME, CURRENCY, BANK_CODE, 
+      BANK_NAME, BANK_KEY, BRANCH_CODE, 
+      BRANCH_NAME, BANK_ACCT_NO, BANK_ACCT_NAME, 
+      STL_TYPE, BAL_FLOOR, AUTO_TRANSFER, 
+      MIN_TRANSFER, TRANSFER_PERIOD, IS_AUTO_STL, 
+      BEGIN_TRANSFER, TRANSFER_PRIORITY, ALLOW_IN, 
+      ALLOW_OUT, OUT_FLAG, REMARK, 
+      VERSION, STATUS, OPER_FLAG, 
+      EFFECT_DATE, LOSE_EFFECT_DATE, MODIFY_BY, 
+      MODIFY_TIME)
+    values (#{acctId,jdbcType=DECIMAL}, #{acctCode,jdbcType=VARCHAR}, #{merCode,jdbcType=VARCHAR}, 
+      #{acctName,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, #{bankCode,jdbcType=VARCHAR}, 
+      #{bankName,jdbcType=VARCHAR}, #{bankKey,jdbcType=VARCHAR}, #{branchCode,jdbcType=VARCHAR}, 
+      #{branchName,jdbcType=VARCHAR}, #{bankAcctNo,jdbcType=VARCHAR}, #{bankAcctName,jdbcType=VARCHAR}, 
+      #{stlType,jdbcType=VARCHAR}, #{balFloor,jdbcType=DECIMAL}, #{autoTransfer,jdbcType=DECIMAL}, 
+      #{minTransfer,jdbcType=DECIMAL}, #{transferPeriod,jdbcType=VARCHAR}, #{isAutoStl,jdbcType=CHAR}, 
+      #{beginTransfer,jdbcType=VARCHAR}, #{transferPriority,jdbcType=DECIMAL}, #{allowIn,jdbcType=CHAR}, 
+      #{allowOut,jdbcType=CHAR}, #{outFlag,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{version,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, #{operFlag,jdbcType=VARCHAR}, 
+      #{effectDate,jdbcType=VARCHAR}, #{loseEffectDate,jdbcType=VARCHAR}, #{modifyBy,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP})
+      
+      WHEN MATCHED THEN  UPDATE 
+    <set >
+      <if test="acctName != null" >
+        ACCT_NAME = #{acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        CURRENCY = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null" >
+        BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankKey != null" >
+        BANK_KEY = #{bankKey,jdbcType=VARCHAR},
+      </if>
+      <if test="branchCode != null" >
+        BRANCH_CODE = #{branchCode,jdbcType=VARCHAR},
+      </if>
+      <if test="branchName != null" >
+        BRANCH_NAME = #{branchName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAcctNo != null" >
+        BANK_ACCT_NO = #{bankAcctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAcctName != null" >
+        BANK_ACCT_NAME = #{bankAcctName,jdbcType=VARCHAR},
+      </if>
+      <if test="stlType != null" >
+        STL_TYPE = #{stlType,jdbcType=VARCHAR},
+      </if>
+      <if test="balFloor != null" >
+        BAL_FLOOR = #{balFloor,jdbcType=DECIMAL},
+      </if>
+      <if test="autoTransfer != null" >
+        AUTO_TRANSFER = #{autoTransfer,jdbcType=DECIMAL},
+      </if>
+      <if test="minTransfer != null" >
+        MIN_TRANSFER = #{minTransfer,jdbcType=DECIMAL},
+      </if>
+      <if test="transferPeriod != null" >
+        TRANSFER_PERIOD = #{transferPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="isAutoStl != null" >
+        IS_AUTO_STL = #{isAutoStl,jdbcType=CHAR},
+      </if>
+      <if test="beginTransfer != null" >
+        BEGIN_TRANSFER = #{beginTransfer,jdbcType=VARCHAR},
+      </if>
+      <if test="transferPriority != null" >
+        TRANSFER_PRIORITY = #{transferPriority,jdbcType=DECIMAL},
+      </if>
+      <if test="allowIn != null" >
+        ALLOW_IN = #{allowIn,jdbcType=CHAR},
+      </if>
+      <if test="allowOut != null" >
+        ALLOW_OUT = #{allowOut,jdbcType=CHAR},
+      </if>
+      <if test="outFlag != null" >
+        OUT_FLAG = #{outFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        VERSION = #{version,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="operFlag != null" >
+        OPER_FLAG = #{operFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="effectDate != null" >
+        EFFECT_DATE = #{effectDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loseEffectDate != null" >
+        LOSE_EFFECT_DATE = #{loseEffectDate,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyBy != null" >
+        MODIFY_BY = #{modifyBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.somnus.base.domain.MerAccount" >
+    update TCIM_MER_ACCOUNT
+    <set >
+      <if test="acctCode != null" >
+        ACCT_CODE = #{acctCode,jdbcType=VARCHAR},
+      </if>
+      <if test="merCode != null" >
+        MER_CODE = #{merCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acctName != null" >
+        ACCT_NAME = #{acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        CURRENCY = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null" >
+        BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankKey != null" >
+        BANK_KEY = #{bankKey,jdbcType=VARCHAR},
+      </if>
+      <if test="branchCode != null" >
+        BRANCH_CODE = #{branchCode,jdbcType=VARCHAR},
+      </if>
+      <if test="branchName != null" >
+        BRANCH_NAME = #{branchName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAcctNo != null" >
+        BANK_ACCT_NO = #{bankAcctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAcctName != null" >
+        BANK_ACCT_NAME = #{bankAcctName,jdbcType=VARCHAR},
+      </if>
+      <if test="stlType != null" >
+        STL_TYPE = #{stlType,jdbcType=VARCHAR},
+      </if>
+      <if test="balFloor != null" >
+        BAL_FLOOR = #{balFloor,jdbcType=DECIMAL},
+      </if>
+      <if test="autoTransfer != null" >
+        AUTO_TRANSFER = #{autoTransfer,jdbcType=DECIMAL},
+      </if>
+      <if test="minTransfer != null" >
+        MIN_TRANSFER = #{minTransfer,jdbcType=DECIMAL},
+      </if>
+      <if test="transferPeriod != null" >
+        TRANSFER_PERIOD = #{transferPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="isAutoStl != null" >
+        IS_AUTO_STL = #{isAutoStl,jdbcType=CHAR},
+      </if>
+      <if test="beginTransfer != null" >
+        BEGIN_TRANSFER = #{beginTransfer,jdbcType=VARCHAR},
+      </if>
+      <if test="transferPriority != null" >
+        TRANSFER_PRIORITY = #{transferPriority,jdbcType=DECIMAL},
+      </if>
+      <if test="allowIn != null" >
+        ALLOW_IN = #{allowIn,jdbcType=CHAR},
+      </if>
+      <if test="allowOut != null" >
+        ALLOW_OUT = #{allowOut,jdbcType=CHAR},
+      </if>
+      <if test="outFlag != null" >
+        OUT_FLAG = #{outFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        VERSION = #{version,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="operFlag != null" >
+        OPER_FLAG = #{operFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="effectDate != null" >
+        EFFECT_DATE = #{effectDate,jdbcType=VARCHAR},
+      </if>
+      <if test="loseEffectDate != null" >
+        LOSE_EFFECT_DATE = #{loseEffectDate,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyBy != null" >
+        MODIFY_BY = #{modifyBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ACCT_CODE = #{acctCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

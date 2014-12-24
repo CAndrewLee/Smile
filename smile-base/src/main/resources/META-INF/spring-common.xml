@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+     http://www.springframework.org/schema/beans   
+     http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 加载本模块需要的所有spring配置-->
+     <!-- 记账队列 -->
+    <bean id="incomeQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${jms.queue.bacs.income}" />
+    </bean>
+     <!-- 协议出款队列 -->
+     <bean id="procotolDrawQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${jms.queue.bacs.procotoldraw}" />
+     </bean>
+    
+</beans> 

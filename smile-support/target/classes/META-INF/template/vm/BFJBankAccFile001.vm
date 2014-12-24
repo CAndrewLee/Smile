@@ -1,0 +1,101 @@
+#*
+*************************人行备付金存管账户文件************************************************************
+参见：《支付机构客户备付金存管系统接口说明（2014 .3）A7.doc》第2.5节
+文件名格式：icbc_yyyyMMdd_001
+模板格式：
+交易日期|账户账号|账户户名|银行名称|数据类型|属性值|备用字段1|备用字段2|备用字段3|
+注意：模板文件是utf8编码的，生成的数据文件，要求是gbk编码的。
+*###
+## a:表1-1 支付机构XX银行客户备付金入金业务明细表
+#foreach($o in $listA)
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A01|$!o.fen.a01||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A02|$!o.fen.a02||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A03|$!o.fen.a03||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A04|$!o.fen.a04||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A05|$!o.fen.a05||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A06|$!o.fen.a06||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A07|$!o.fen.a07||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A08|$!o.fen.a08||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A09|$!o.fen.a09||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A10|$!o.fen.a10||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A11|$!o.fen.a11||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A12|$!o.fen.a12||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A13|$!o.fen.a13||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|A14|$!o.fen.a14||||||
+#end
+## b:表1-2 支付机构客户备付金出金业务明细表(按账户细分)
+#foreach($o in $listB)
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|BB04|$!o.fen.b04||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|BB05|$!o.fen.b05||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|BB06|$!o.fen.b06||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|BB07|$!o.fen.b07||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|BB08|$!o.fen.b08||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|BB09|$!o.fen.b09||||||
+#end
+## c:表1-3 支付机构客户备付金业务实际出金明细表
+#foreach($o in $listC)
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|C01|$!o.fen.c01||||||
+#end
+## fg:表1-6 支付机构XX银行特殊业务明细表(增加余额的业务)
+#foreach($o in $listFG)
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|F01|$!o.fen.f01||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|F02|$!o.fen.f02||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|F03|$!o.fen.f03||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|F04|$!o.fen.f04||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|F05|$!o.fen.f05||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|F06|$!o.fen.f06||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|F07|$!o.fen.f07||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|F08|$!o.fen.f08||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|F09|$!o.fen.f09||||||
+#end
+## fg:表1-6 支付机构XX银行特殊业务明细表(减少余额的业务)
+#foreach($o in $listFG)
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G01|$!o.fen.g01||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G02|$!o.fen.g02||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G03|$!o.fen.g03||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G04|$!o.fen.g04||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G05|$!o.fen.g05||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G06|$!o.fen.g06||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G07|$!o.fen.g07||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G08|$!o.fen.g08||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G09|$!o.fen.g09||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G10|$!o.fen.g10||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G11|$!o.fen.g11||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G12|$!o.fen.g12||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G13|$!o.fen.g13||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|G14|$!o.fen.g14||||||
+#end
+## j: 表1-9 支付机构XX银行客户备付金业务未达账项统计表
+#foreach($o in $listJ)
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|J01|$!o.fen.j01||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|J02|$!o.fen.j02||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|J03|$!o.fen.j03||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|J04|$!o.fen.j04||||||
+#end
+## k: 表1-10 支付机构XX银行客户备付金业务未达账项分析表 
+#foreach($o in $listK)
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K01|$!o.fen.k01||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K02|$!o.fen.k02||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K03|$!o.fen.k03||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K04|$!o.fen.k04||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K05|$!o.fen.k05||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K06|$!o.fen.k06||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K07|$!o.fen.k07||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K08|$!o.fen.k08||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K09|$!o.fen.k09||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K10|$!o.fen.k10||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K11|$!o.fen.k11||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K12|$!o.fen.k12||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K13|$!o.fen.k13||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K14|$!o.fen.k14||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K15|$!o.fen.k15||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K16|$!o.fen.k16||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K17|$!o.fen.k17||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K18|$!o.fen.k18||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K19|$!o.fen.k19||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K20|$!o.fen.k20||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K21|$!o.fen.k21||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K22|$!o.fen.k22||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K23|$!o.fen.k23||||||
+$!o.tranDateOriginal|$!o.bankActNo|$!o.bankActName|$!o.bankName|K24|$!o.fen.k24||||||
+#end

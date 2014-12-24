@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- 代理datasource，使其能够显式获取preparedStatement的参数值 -->
+	<bean id="proxyDataSource" class="org.jdbcdslog.ConnectionPoolDataSourceProxy">
+		<property name="targetDSDirect" ref="dataSource"/>
+	</bean>
+	
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="proxyDataSource"/>
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
+        <property name="mapperLocations" value="classpath*:META-INF/mybatis/mappers/**/*.xml"/>
+    </bean>
+
+    <!-- scan for dao and let them be autowired -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- Mapper接口所在包名，Spring会自动查找其下的Mapper -->
+        <property name="basePackage" value="com.somnus.base.dao"/>
+        <!--annotation 标注Mapper -->
+        <property name="annotationClass" value="com.somnus.support.mybatis.annotation.MyBatisRepository"/>
+    </bean>
+
+</beans>     

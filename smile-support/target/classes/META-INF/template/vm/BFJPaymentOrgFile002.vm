@@ -1,0 +1,87 @@
+#*
+*************************人行备付金存管支付机构文件************************************************************
+参见：《支付机构客户备付金存管系统接口说明（2014 .3）A7.doc》第2.5节
+文件名格式：icbc_yyyyMMdd_002
+模板格式：
+交易日期|数据类型|属性值|备用字段1|备用字段2|备用字段3|
+
+注意：模板文件是utf8编码的，生成的数据文件，要求是gbk编码的。
+*###
+## b:表1-2 支付机构客户备付金出金业务明细表
+#foreach($o in $listB)
+$!o.tranDateOriginal|B01|$!o.fen.b01||||||
+$!o.tranDateOriginal|B02|$!o.fen.b02||||||
+$!o.tranDateOriginal|B03|$!o.fen.b03||||||
+$!o.tranDateOriginal|B04|$!o.fen.b04||||||
+$!o.tranDateOriginal|B05|$!o.fen.b05||||||
+$!o.tranDateOriginal|B06|$!o.fen.b06||||||
+$!o.tranDateOriginal|B07|$!o.fen.b07||||||
+$!o.tranDateOriginal|B08|$!o.fen.b08||||||
+$!o.tranDateOriginal|B09|$!o.fen.b09||||||
+#end
+## d:表1-4 支付机构客户资金账户转账业务统计表
+#foreach($o in $listD)
+$!o.tranDateOriginal|D01|$!o.fen.d1||||||
+$!o.tranDateOriginal|D02|$!o.fen.d2||||||
+$!o.tranDateOriginal|D03|$!o.fen.d3||||||
+$!o.tranDateOriginal|D04|$!o.fen.d4||||||
+#end
+## e:表1-5 支付机构客户资金账户余额统计表
+#foreach($o in $listE)
+$!o.tranDateOriginal|E01|$!o.fen.e01||||||
+$!o.tranDateOriginal|E02|$!o.fen.e02||||||
+$!o.tranDateOriginal|E03|$!o.fen.e03||||||
+$!o.tranDateOriginal|E04|$!o.fen.e04||||||
+$!o.tranDateOriginal|E05|$!o.fen.e05||||||
+$!o.tranDateOriginal|E06|$!o.fen.e06||||||
+#end
+## l:表1-11 支付机构客户资金账户余额变动调节表
+#foreach($o in $listL)
+$!o.tranDateOriginal|L1|$!o.fen.l01||||||
+$!o.tranDateOriginal|L2|$!o.fen.l02||||||
+$!o.tranDateOriginal|L3|$!o.fen.l03||||||
+$!o.tranDateOriginal|L4|$!o.fen.l04||||||
+$!o.tranDateOriginal|L5|$!o.fen.l05||||||
+$!o.tranDateOriginal|L6|$!o.fen.l06||||||
+$!o.tranDateOriginal|L7|$!o.fen.l07||||||
+$!o.tranDateOriginal|L8|$!o.fen.l08||||||
+$!o.tranDateOriginal|L9|$!o.fen.l09||||||
+$!o.tranDateOriginal|L10|$!o.fen.l10||||||
+$!o.tranDateOriginal|L11|$!o.fen.l11||||||
+$!o.tranDateOriginal|L12|$!o.fen.l12||||||
+$!o.tranDateOriginal|L13|$!o.fen.l13||||||
+$!o.tranDateOriginal|L14|$!o.fen.l14||||||
+$!o.tranDateOriginal|L15|$!o.fen.l15||||||
+$!o.tranDateOriginal|L16|$!o.fen.l16||||||
+$!o.tranDateOriginal|L17|$!o.fen.l17||||||
+$!o.tranDateOriginal|L18|$!o.fen.l18||||||
+$!o.tranDateOriginal|L19|$!o.fen.l19||||||
+$!o.tranDateOriginal|L20|$!o.fen.l20||||||
+$!o.tranDateOriginal|L21|$!o.fen.l21||||||
+$!o.tranDateOriginal|L22|$!o.fen.l22||||||
+$!o.tranDateOriginal|L23|$!o.fen.l23||||||
+$!o.tranDateOriginal|L24|$!o.fen.l24||||||
+$!o.tranDateOriginal|U|$!o.fen.u||||||
+$!o.tranDateOriginal|V|$!o.fen.u||||||
+$!o.tranDateOriginal|W|$!o.fen.w||||||
+#end
+## m:表1-12 支付机构客户资金账户余额试算表
+#foreach($o in $listM)
+$!o.tranDateOriginal|M1|$!o.fen.m01||||||
+$!o.tranDateOriginal|M2|$!o.fen.m02||||||
+$!o.tranDateOriginal|M3|$!o.fen.m03||||||
+$!o.tranDateOriginal|M4|$!o.fen.m04||||||
+$!o.tranDateOriginal|M5|$!o.fen.m05||||||
+$!o.tranDateOriginal|M6|$!o.fen.m06||||||
+$!o.tranDateOriginal|M7|$!o.fen.m07||||||
+$!o.tranDateOriginal|M8|$!o.fen.m08||||||
+$!o.tranDateOriginal|M9|$!o.fen.m09||||||
+$!o.tranDateOriginal|M10|$!o.fen.m10||||||
+$!o.tranDateOriginal|M11|$!o.fen.m11||||||
+$!o.tranDateOriginal|M12|$!o.fen.m12||||||
+$!o.tranDateOriginal|M13|$!o.fen.m13||||||
+$!o.tranDateOriginal|M14|$!o.fen.m14||||||
+$!o.tranDateOriginal|CU|$!o.fen.cu||||||
+$!o.tranDateOriginal|CV|$!o.fen.cv||||||
+$!o.tranDateOriginal|CW|$!o.fen.cw||||||
+#end
