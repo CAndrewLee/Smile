@@ -1,4 +1,4 @@
-package com.somnus.base.domain;
+package com.somnus.support.domain;
 
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;

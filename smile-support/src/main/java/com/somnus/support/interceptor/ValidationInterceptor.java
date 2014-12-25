@@ -1,4 +1,4 @@
-package com.somnus.base.common;
+package com.somnus.support.interceptor;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -7,13 +7,14 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.somnus.message.Message;
+
 import javax.validation.ConstraintViolation;
 import javax.validation.ValidationException;
 import javax.validation.Validator;
 
 import java.util.Set;
 
-import com.somnus.message.Message;
 
 @Aspect
 public class ValidationInterceptor {

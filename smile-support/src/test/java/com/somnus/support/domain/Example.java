@@ -1,4 +1,4 @@
-package com.somnus.base.domain;
+package com.somnus.support.domain;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

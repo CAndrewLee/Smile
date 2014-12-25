@@ -13,6 +13,17 @@
 	<artifactId>smile-support</artifactId>
 	<dependencies>
 		<dependency>
+			<groupId>com.somnus</groupId>
+			<artifactId>smile-config</artifactId>
+			<version>${project.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.somnus</groupId>
+			<artifactId>smile-message</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>com.jcraft</groupId>
 			<artifactId>jsch</artifactId>
 		</dependency>

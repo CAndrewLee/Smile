@@ -1,4 +1,4 @@
-package com.somnus.base.domain;
+package com.somnus.support.domain;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

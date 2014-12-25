@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 public abstract class AbstractReportTemplate implements ReportTemplate {
 	
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
-	protected static final String TEMP_PATH_XLS =  "template/xls/";
+	protected static final String TEMP_PATH_XLS =  "META-INF/template/xls/";
 	
 	@Override
 	public void export(String strartDate, String endDate, OutputStream outputStream){
