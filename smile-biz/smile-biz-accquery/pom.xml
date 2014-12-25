@@ -9,7 +9,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   
-  <artifactId>smile-biz-draw</artifactId>
+  <artifactId>smile-biz-accquery</artifactId>
   
   <dependencies>
   	<dependency>
@@ -28,7 +28,7 @@
 		<version>${project.version}</version>
 	</dependency>
 	<dependency>
-	<groupId>com.somnus</groupId>
+		<groupId>com.somnus</groupId>
 		<artifactId>smile-config</artifactId>
 		<version>${project.version}</version>
 		<scope>test</scope>
