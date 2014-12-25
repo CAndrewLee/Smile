@@ -1,12 +1,13 @@
 package com.somnus.biz.income.common;
 
+import java.util.Date;
+
 import org.springframework.beans.BeanUtils;
 
 import com.somnus.base.common.CommonTransfer;
 import com.somnus.base.domain.TrnTransaction;
 import com.somnus.message.account.IncomeRequest;
 import com.somnus.support.common.Identities;
-import com.somnus.support.util.DateUtil;
 
 public class IncomeTransfer extends CommonTransfer{
 	/**
@@ -32,7 +33,7 @@ public class IncomeTransfer extends CommonTransfer{
 	private static void incomeSet(TrnTransaction trntransaction){
 		CommonTransfer.initial(trntransaction);
 		trntransaction.setAccTranNo(Identities.randomString(10, true));
-		trntransaction.setAccDate(DateUtil.stringtoDate(DateUtil.getNow(), DateUtil.FORMAT_FOUR));
+		trntransaction.setAccDate(new Date());
 		trntransaction.setBlnStatus(IncomeConstants.BLN_STATUS_NOTENTER);
 		trntransaction.setAccMode(IncomeConstants.ACC_MODE_ASYN);
 		trntransaction.setAccStatus(IncomeConstants.ACC_STATUS_HANDLING);

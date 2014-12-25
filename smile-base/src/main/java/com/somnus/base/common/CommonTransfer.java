@@ -13,7 +13,7 @@ public class CommonTransfer {
 		trntransaction.setAccMode(BasConstants.ACC_MODE_SYN);
 		trntransaction.setAccStatus(BasConstants.ACC_STATUS_SUCCESS);
 		trntransaction.setBlnStatus(BasConstants.BLN_STATUS_NOTNEED);
-		trntransaction.setCreateTime(DateUtil.getCurrentTimeStamp());
+		trntransaction.setCreateTime(DateUtil.getNow());
 		trntransaction.setModifyTime(trntransaction.getCreateTime());
 		trntransaction.setCreateBy(BasConstants.DEFAULT_OPERATOR);
 		trntransaction.setModifyBy(trntransaction.getCreateBy());

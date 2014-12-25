@@ -82,8 +82,7 @@ public class ValidateUtil {
 	 * @throws
 	 */
 	public static boolean isAmt(String str) {
-		return str
-				.matches("^(-)?(([1-9]{1}\\d{0,19})|([0]{1}))(\\.(\\d){1,4})?$");
+		return str.matches("^(-)?(([1-9]{1}\\d{0,19})|([0]{1}))(\\.(\\d){1,4})?$");
 	}
 
 	/**
@@ -135,8 +134,7 @@ public class ValidateUtil {
 	 * @return
 	 */
 	public static boolean isValidDateTime(String dateTime) {
-		return dateTime
-				.matches("^(((20[0-3][0-9]-(0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|(20[0-3][0-9]-(0[2469]|11)-(0[1-9]|[12][0-9]|30))) (20|21|22|23|[0-1][0-9]):[0-5][0-9]:[0-5][0-9])$");
+		return dateTime.matches("^(((20[0-3][0-9]-(0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|(20[0-3][0-9]-(0[2469]|11)-(0[1-9]|[12][0-9]|30))) (20|21|22|23|[0-1][0-9]):[0-5][0-9]:[0-5][0-9])$");
 	}
 	
 	/**
@@ -148,7 +146,6 @@ public class ValidateUtil {
 	 * @return boolean
 	 */
 	public static boolean isValidTime(String time) {
-		return time
-				.matches("^((20|21|22|23|[0-1][0-9]):[0-5][0-9]:[0-5][0-9])$");
+		return time.matches("^((20|21|22|23|[0-1][0-9]):[0-5][0-9]:[0-5][0-9])$");
 	}
 }
