@@ -17,6 +17,7 @@ import com.somnus.base.domain.TrnTransaction;
 import com.somnus.base.service.BasBizService;
 import com.somnus.support.common.MsgCodeList;
 import com.somnus.support.exceptions.BizException;
+import com.somnus.support.util.JsonUtil;
 
 @Service
 public class BasBizServiceImpl implements BasBizService {
@@ -40,6 +41,7 @@ public class BasBizServiceImpl implements BasBizService {
     @Override
     @Transactional
     public void insertTranNoSerq(TrnTransaction trnTransaction) {
+    	log.info("插入TrnTransaction记录：{}",JsonUtil.toString(trnTransaction));
         trnTransactionDao.insertNoSerq(trnTransaction);
     }
 

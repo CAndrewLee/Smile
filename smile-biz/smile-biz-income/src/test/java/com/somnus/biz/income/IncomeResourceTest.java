@@ -41,10 +41,8 @@ public class IncomeResourceTest extends AbstractTestSupport {
         incomeRequest.setPayTranNo("payTranNo");
         incomeRequest.setInitiatorFlg("0");
         incomeRequest.setPayeeCode("100076");
-        //incomeRequest.setPayeeCode("100071");
         incomeRequest.setPayeeType("1");
         incomeRequest.setPayeeAccCode("1000760015");
-        //incomeRequest.setPayeeAccCode("1000710010");
         incomeRequest.setTranType("1011");
         incomeRequest.setChannelCode("1100113100000001");
         incomeRequest.setSupplierCode("1100");

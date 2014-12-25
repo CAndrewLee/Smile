@@ -17,6 +17,7 @@ public class IncomeAction extends AbstractJmsReceiveTemplate {
 		log.info("-------收单记账调用开始--------");
 		log.info("接收消息：{}", message);
 		if (!(message instanceof TrnTransaction)) {
+			log.error("报文对象不匹配！:{}", new Object[] { message });
             throw new BizException("报文对象不匹配！");
         }
 		TrnTransaction trnTransaction = (TrnTransaction) message;
