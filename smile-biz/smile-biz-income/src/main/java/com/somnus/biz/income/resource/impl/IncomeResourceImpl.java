@@ -1,12 +1,3 @@
-/*
- * Copyright 2010 by IPS. Floor 3,Universal Industrial Building,
- * Tian Yaoqiao Road 1178,Shanghai, P.R. China，200300. All rights reserved.
- *
- * This software is the confidential and proprietary information of IPS
- * ("Confidential Information"). You shall not disclose such
- * Confidential Information and shall use it only in accordance with the terms
- * of the license agreement you entered into with IPS.
- */
 package com.somnus.biz.income.resource.impl;
 
 import javax.ws.rs.POST;
@@ -31,6 +22,7 @@ import com.somnus.biz.income.resource.IncomeResource;
 import com.somnus.message.account.AccountResponse;
 import com.somnus.message.account.IncomeRequest;
 import com.somnus.support.exceptions.BizException;
+import com.somnus.support.util.JsonUtil;
 
 @Component
 @Validated
@@ -48,7 +40,7 @@ public class IncomeResourceImpl implements IncomeResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Override
     public AccountResponse bankIncome(IncomeRequest incomeRequest) {
-        log.info(Constants.REQUEST_MSG, incomeRequest);
+        log.info(Constants.REQUEST_MSG, JsonUtil.toString(incomeRequest));
         AccountResponse repMsg = new AccountResponse();
         try {
             TrnTransaction trntransaction = IncomeTransfer.msgToTransaction(incomeRequest);
@@ -67,7 +59,7 @@ public class IncomeResourceImpl implements IncomeResource {
             // 组织错误报文
             MessageUtil.createErrorMsg(repMsg);
         }
-        log.info(Constants.REPONSE_MSG, repMsg);
+        log.info(Constants.REPONSE_MSG, JsonUtil.toString(repMsg));
         return repMsg;
     }
 

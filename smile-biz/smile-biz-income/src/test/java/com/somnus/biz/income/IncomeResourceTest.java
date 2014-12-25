@@ -1,12 +1,3 @@
-/*
- * Copyright 2010 by IPS. Floor 3,Universal Industrial Building, 
- * Tian Yaoqiao Road 1178,Shanghai, P.R. China，200300. All rights reserved.
- *
- * This software is the confidential and proprietary information of IPS
- * ("Confidential Information"). You shall not disclose such
- * Confidential Information and shall use it only in accordance with the terms
- * of the license agreement you entered into with IPS.
- */
 package com.somnus.biz.income;
 
 import org.junit.Test;
@@ -17,6 +8,7 @@ import com.somnus.message.Message;
 import com.somnus.message.account.AccountResponse;
 import com.somnus.message.account.IncomeRequest;
 import com.somnus.support.holder.ApplicationContextHolder;
+import com.somnus.support.util.JsonUtil;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -78,10 +70,10 @@ public class IncomeResourceTest extends AbstractTestSupport {
         incomeRequest.setSecurityDeposit(new BigDecimal("0"));
 
         IncomeResource incomeResource = ApplicationContextHolder.getBean(IncomeResource.class);
-        System.out.println("银行卡收单请求>>>:"+ incomeRequest);
+        System.out.println("银行卡收单请求>>>:"+ JsonUtil.toString(incomeRequest));
         Message message = incomeResource.bankIncome(incomeRequest);
         AccountResponse accountResponse =(AccountResponse)message;
-        System.out.println("银行卡收单响应<<<:"+accountResponse);
+        System.out.println("银行卡收单响应<<<:"+JsonUtil.toString(accountResponse));
         try {
             //等待mq异步处理完成
             Thread.currentThread().sleep(3600);
