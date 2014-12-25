@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.somnus.biz.accquery.dao.PaymentAppDao">
+  <resultMap id="BaseResultMap" type="com.ips.bacs.message.accquery.QueryPayAppOrder" >
+  	<result column="ACC_TRAN_NO" property="accTranNo" jdbcType="VARCHAR" />
+  	<result column="PAYER_CODE" property="merCode" jdbcType="VARCHAR" />
+    <result column="PAYER_ACC_CODE" property="merAccCode" jdbcType="VARCHAR" />
+    <result column="CCY_CODE" property="ccyCode" jdbcType="VARCHAR" />
+    <result column="SUPPLIER_CODE" property="refBankCode" jdbcType="VARCHAR" />
+    
+    <result column="REFUND_AMT" property="tranAmount" jdbcType="DECIMAL" />
+    <result column="APP_REFUND_DATE" property="tranDate" jdbcType="DATE" />
+    <result column="CARDHOLDER" property="cardHolder" jdbcType="VARCHAR" />
+    <result column="CARD_NO" property="cardNo" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="selectPayAppOrders" resultMap="BaseResultMap" parameterType="com.somnus.message.accquery.QueryPayAppRequest">
+  	select 
+  	a.ACC_TRAN_NO,a.PAYER_CODE,a.PAYER_ACC_CODE,a.CCY_CODE,a.SUPPLIER_CODE,
+  	b.REFUND_AMT,
+  	to_char(b.APP_REFUND_DATE,'yyyy-mm-dd hh24:mi:ss') APP_REFUND_DATE,
+  	b.CARDHOLDER,b.CARD_NO
+  	from TCOR_TRN_TRANSACTION a,TCOR_TRN_TRANREFUND b
+  	where
+  	a.ACC_TRAN_NO = b.ACC_TRAN_NO and
+  	b.STATUS = '3' and 
+  	b.BIZ_TYPE = '02'
+  	<if test="merCode != null and merCode != ''">
+		and a.PAYER_CODE = #{merCode}
+	</if>	
+	<if test="merAccCode != null and merAccCode != ''">
+		and a.PAYER_ACC_CODE = #{merAccCode} 
+	</if>	
+  </select>
+    
+</mapper>
