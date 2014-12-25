@@ -12,21 +12,7 @@
   <artifactId>smile-biz-accquery</artifactId>
   
   <dependencies>
-  	<dependency>
-		<groupId>com.somnus</groupId>
-		<artifactId>smile-base</artifactId>
-		<version>${project.version}</version>
-	</dependency>
-	<dependency>
-		<groupId>com.somnus</groupId>
-		<artifactId>smile-support</artifactId>
-		<version>${project.version}</version>
-	</dependency>
-	<dependency>
-		<groupId>com.somnus</groupId>
-		<artifactId>smile-message</artifactId>
-		<version>${project.version}</version>
-	</dependency>
+	
 	<dependency>
 		<groupId>com.somnus</groupId>
 		<artifactId>smile-config</artifactId>

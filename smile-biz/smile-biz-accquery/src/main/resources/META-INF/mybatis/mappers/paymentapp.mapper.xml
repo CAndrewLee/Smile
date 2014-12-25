@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.somnus.biz.accquery.dao.PaymentAppDao">
-  <resultMap id="BaseResultMap" type="com.ips.bacs.message.accquery.QueryPayAppOrder" >
+  <resultMap id="BaseResultMap" type="com.somnus.message.accquery.QueryPayAppOrder" >
   	<result column="ACC_TRAN_NO" property="accTranNo" jdbcType="VARCHAR" />
   	<result column="PAYER_CODE" property="merCode" jdbcType="VARCHAR" />
     <result column="PAYER_ACC_CODE" property="merAccCode" jdbcType="VARCHAR" />

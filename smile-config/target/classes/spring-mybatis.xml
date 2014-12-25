@@ -21,7 +21,7 @@
     <!-- scan for dao and let them be autowired -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- Mapper接口所在包名，Spring会自动查找其下的Mapper -->
-        <property name="basePackage" value="com.somnus.base.dao"/>
+        <property name="basePackage" value="com.somnus"/>
         <!--annotation 标注Mapper -->
         <property name="annotationClass" value="com.somnus.support.mybatis.annotation.MyBatisRepository"/>
     </bean>
