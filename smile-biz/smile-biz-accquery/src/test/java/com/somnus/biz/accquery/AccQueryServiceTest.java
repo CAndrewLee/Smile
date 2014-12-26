@@ -12,14 +12,12 @@ import com.somnus.support.util.JsonUtil;
  * 计费Service测试
  *
  */
-public class AccQueryServiceTestcase extends AbstractTestSupport{
+public class AccQueryServiceTest extends AbstractTestSupport{
     
     @Test
     public void queryPaymentAppTestcase() throws Exception {
     	QueryPayAppRequest request = new QueryPayAppRequest();
-    	request.setMerAccCode("A0029101");
-    	request.setMerCode("A00291");
-    	request.setPageNum(1);
+    	request.setPageNum(2);
     	request.setPageSize(10);
     	AccQueryService accQueryService = ApplicationContextHolder.getBean(AccQueryService.class);
     	QueryPayAppResponse response = accQueryService.queryPaymentApp(request);
