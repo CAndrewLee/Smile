@@ -10,6 +10,27 @@
 
 	<name>smile</name>
 	<url>http://maven.apache.org</url>
+	<description>maven在项目中是如何依赖、聚合和继承的示例</description>
+	
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:git@github.com:love-somnus/Smile.git</connection>
+        <developerConnection>scm:git:git@github.com:love-somnus/Smile.git</developerConnection>
+        <url>git@github.com:love-somnus/Smile.git</url>
+    </scm>
+    <developers>
+        <developer>
+            <id>Smile</id>
+            <name>Somnus</name>
+            <email>928200207@qq.com</email>
+        </developer>
+    </developers>
 
 	<modules>
 		<module>smile-config</module>
@@ -755,18 +776,5 @@
 			<url>http://maven.oschina.net/content/repositories/smile-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
-
-	<!-- SCM # 需要SVN的命令行工具支持 -->
-	<scm>
-		<url>https://github.com/love-somnus/Smile.git</url>
-		<connection>scm:git:https://github.com/love-somnus/Smile.git</connection>
-	</scm>
-	<developers>
-		<developer>
-			<id>Somnus</id>
-			<name>Somnus</name>
-			<email>928200207@qq.com</email>
-		</developer>
-	</developers>
 
 </project>
