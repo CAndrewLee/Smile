@@ -19,7 +19,7 @@ import com.somnus.message.Message;
 import com.somnus.message.accquery.QueryPayAppRequest;
 import com.somnus.message.accquery.QueryPayAppResponse;
 import com.somnus.support.exceptions.BizException;
-import com.somnus.support.util.JsonUtil;
+import com.somnus.support.util.JsonUtils;
 
 
 @Component
@@ -35,7 +35,7 @@ public class AccQueryResourceImpl implements AccQueryResource {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	public QueryPayAppResponse queryPaymentApp(QueryPayAppRequest request) {
-		log.info(Constants.REQUEST_MSG, JsonUtil.toString(request));
+		log.info(Constants.REQUEST_MSG, JsonUtils.toString(request));
 		QueryPayAppResponse response = new QueryPayAppResponse();
 		Message message = new Message();
 		try {
@@ -51,7 +51,7 @@ public class AccQueryResourceImpl implements AccQueryResource {
 			// 组织错误报文
 			message = MessageUtil.createErrorMsg();
 		}
-		log.info(Constants.REPONSE_MSG, JsonUtil.toString(message));
+		log.info(Constants.REPONSE_MSG, JsonUtils.toString(message));
 		response.setRepCode(message.getRepCode());
 		response.setRepMsg(message.getRepMsg());
 		return response;

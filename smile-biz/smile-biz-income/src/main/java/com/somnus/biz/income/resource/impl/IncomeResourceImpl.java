@@ -22,7 +22,7 @@ import com.somnus.biz.income.resource.IncomeResource;
 import com.somnus.message.account.AccountResponse;
 import com.somnus.message.account.IncomeRequest;
 import com.somnus.support.exceptions.BizException;
-import com.somnus.support.util.JsonUtil;
+import com.somnus.support.util.JsonUtils;
 
 @Component
 @Validated
@@ -40,7 +40,7 @@ public class IncomeResourceImpl implements IncomeResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Override
     public AccountResponse bankIncome(IncomeRequest incomeRequest) {
-        log.info(Constants.REQUEST_MSG, JsonUtil.toString(incomeRequest));
+        log.info(Constants.REQUEST_MSG, JsonUtils.toString(incomeRequest));
         AccountResponse repMsg = new AccountResponse();
         try {
             TrnTransaction trntransaction = IncomeTransfer.msgToTransaction(incomeRequest);
@@ -59,7 +59,7 @@ public class IncomeResourceImpl implements IncomeResource {
             // 组织错误报文
             MessageUtil.createErrorMsg(repMsg);
         }
-        log.info(Constants.REPONSE_MSG, JsonUtil.toString(repMsg));
+        log.info(Constants.REPONSE_MSG, JsonUtils.toString(repMsg));
         return repMsg;
     }
 

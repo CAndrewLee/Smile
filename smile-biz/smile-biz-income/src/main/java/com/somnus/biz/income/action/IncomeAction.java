@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import com.somnus.base.domain.TrnTransaction;
 import com.somnus.support.exceptions.BizException;
 import com.somnus.support.jms.AbstractJmsReceiveTemplate;
-import com.somnus.support.util.JsonUtil;
+import com.somnus.support.util.JsonUtils;
 
 public class IncomeAction extends AbstractJmsReceiveTemplate {
 
@@ -21,7 +21,7 @@ public class IncomeAction extends AbstractJmsReceiveTemplate {
             throw new BizException("报文对象不匹配！");
         }
 		TrnTransaction trnTransaction = (TrnTransaction) message;
-		log.info("记账流水{}",JsonUtil.toString(trnTransaction));
+		log.info("记账流水{}",JsonUtils.toString(trnTransaction));
 		log.info("-------收单记账调用结束--------");
 	}
 }

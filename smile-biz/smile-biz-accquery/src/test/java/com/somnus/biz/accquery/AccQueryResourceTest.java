@@ -6,7 +6,7 @@ import com.somnus.biz.accquery.resource.AccQueryResource;
 import com.somnus.message.accquery.QueryPayAppRequest;
 import com.somnus.message.accquery.QueryPayAppResponse;
 import com.somnus.support.holder.ApplicationContextHolder;
-import com.somnus.support.util.JsonUtil;
+import com.somnus.support.util.JsonUtils;
 
 /**
  * 计费Service测试
@@ -27,6 +27,6 @@ public class AccQueryResourceTest extends AbstractTestSupport{
     	request.setPageSize(10);
     	AccQueryResource sccQueryResource = ApplicationContextHolder.getBean(AccQueryResource.class);
     	QueryPayAppResponse response = sccQueryResource.queryPaymentApp(request);
-    	System.out.println("响应结果>>>>>>>>>>>>> : " + JsonUtil.toString(response));
+    	System.out.println("响应结果>>>>>>>>>>>>> : " + JsonUtils.toString(response));
     }
 }

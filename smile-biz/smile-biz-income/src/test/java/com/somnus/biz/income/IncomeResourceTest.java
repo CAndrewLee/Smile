@@ -8,7 +8,7 @@ import com.somnus.message.Message;
 import com.somnus.message.account.AccountResponse;
 import com.somnus.message.account.IncomeRequest;
 import com.somnus.support.holder.ApplicationContextHolder;
-import com.somnus.support.util.JsonUtil;
+import com.somnus.support.util.JsonUtils;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -68,10 +68,10 @@ public class IncomeResourceTest extends AbstractTestSupport {
         incomeRequest.setSecurityDeposit(new BigDecimal("0"));
 
         IncomeResource incomeResource = ApplicationContextHolder.getBean(IncomeResource.class);
-        System.out.println("银行卡收单请求>>>:"+ JsonUtil.toString(incomeRequest));
+        System.out.println("银行卡收单请求>>>:"+ JsonUtils.toString(incomeRequest));
         Message message = incomeResource.bankIncome(incomeRequest);
         AccountResponse accountResponse =(AccountResponse)message;
-        System.out.println("银行卡收单响应<<<:"+JsonUtil.toString(accountResponse));
+        System.out.println("银行卡收单响应<<<:"+JsonUtils.toString(accountResponse));
         try {
             //等待mq异步处理完成
             Thread.currentThread().sleep(3600);
