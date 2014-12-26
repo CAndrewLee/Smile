@@ -1,6 +1,5 @@
 package com.somnus.biz.accquery;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import org.junit.Test;
 
 import com.somnus.biz.accquery.resource.AccQueryResource;
