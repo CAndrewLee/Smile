@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.somnus</groupId>
@@ -10,7 +9,7 @@
 
 	<name>smile</name>
 	<url>http://maven.apache.org</url>
-	<description>maven在项目中是如何依赖、聚合和继承的示例</description>
+	<description>maven在项目中是如何依赖�?聚合和继承的示例</description>
 	
     <licenses>
         <license>
@@ -38,7 +37,8 @@
 		<module>smile-base</module>
 		<module>smile-biz</module>
 		<module>smile-message</module>
-	</modules>
+    <module>smile-web</module>
+  </modules>
 
 	<properties>
 		<!-- spring -->
@@ -109,18 +109,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -268,7 +256,7 @@
 	<!-- 依赖管理 -->
 	<dependencyManagement>
 		<dependencies>
-			<!-- 加入jstl依赖包 -->
+			<!-- 加入jstl依赖�?-->
 			<dependency>
 				<groupId>jstl</groupId>
 				<artifactId>jstl</artifactId>
@@ -313,7 +301,7 @@
 				<artifactId>jsch</artifactId>  
 				<version>${jsch.version}</version>  
 			</dependency>
-			<!-- 加入fastjson依赖包 -->
+			<!-- 加入fastjson依赖�?-->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
@@ -659,7 +647,7 @@
 				<artifactId>hibernate-validator</artifactId>
 				<version>${hibernate.validator.version}</version>
 			</dependency>
-			<!-- dom4j需要 @see http://mayatama.iteye.com/blog/1058048-->
+			<!-- dom4j�?�� @see http://mayatama.iteye.com/blog/1058048-->
 			<dependency>
 	            <groupId>jaxen</groupId>
 	            <artifactId>jaxen</artifactId>
@@ -672,7 +660,7 @@
 	            </exclusions>
 	        </dependency>
 	        
-	        <!-- 加入excel依赖包 -->
+	        <!-- 加入excel依赖�?-->
 			<dependency>
 	          	<groupId>net.sf.jxls</groupId>
 	          	<artifactId>jxls-reader</artifactId>
@@ -725,7 +713,7 @@
 					<artifactId>maven-war-plugin</artifactId>
 					<version>${war.plugin.version}</version>
 					<configuration>
-						<!-- 打包时的常规排除项 -->
+						<!-- 打包时的常规排除�?-->
 						<packagingExcludes>
 							WEB-INF/classes/logback-test.xml
 						</packagingExcludes>
