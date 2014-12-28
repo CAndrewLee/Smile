@@ -80,7 +80,6 @@
 		<aspectj.version>1.6.9</aspectj.version>
 		<asm.version>3.3.1</asm.version>
 		<cglib.version>2.2.2</cglib.version>
-		<jstl.version>1.2</jstl.version>
 		<geronimo.version>1.1.1</geronimo.version>
 		<!-- JDBC Driver -->
 		<!-- <jdbc.driver.groupId>com.oracle</jdbc.driver.groupId>
@@ -92,6 +91,8 @@
 		<!-- servlet & jsp -->
 		<servlet.version>2.5</servlet.version>
 		<jsp.version>2.2</jsp.version>
+		<!-- jstl -->
+		<jstl.version>1.2</jstl.version>
 		<!-- test -->
 		<junit.version>4.11</junit.version>
 		<!-- bean validator -->
@@ -256,6 +257,7 @@
 	<!-- 依赖管理 -->
 	<dependencyManagement>
 		<dependencies>
+			<!-- JSON -->
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-core</artifactId>
@@ -362,6 +364,12 @@
 				<groupId>org.mybatis</groupId>
 				<artifactId>mybatis-spring</artifactId>
 				<version>${mybatis.spring.version}</version>
+			</dependency>
+			<!--pagination -->
+			<dependency>
+				<groupId>com.github.miemiedev</groupId>
+				<artifactId>mybatis-paginator</artifactId>
+				<version>${mybatis.paginator.version}</version>
 			</dependency>
 
 			<!-- jersey -->
@@ -549,7 +557,8 @@
 				<artifactId>bcprov-jdk16</artifactId>
 				<version>${bouncycastle.version}</version>
 			</dependency>
-
+			
+			<!-- AOP -->
 			<dependency>
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjrt</artifactId>
@@ -605,17 +614,13 @@
 				<version>${junit.version}</version>
 				<scope>test</scope>
 			</dependency>
-			<!--pagination -->
-			<dependency>
-				<groupId>com.github.miemiedev</groupId>
-				<artifactId>mybatis-paginator</artifactId>
-				<version>${mybatis.paginator.version}</version>
-			</dependency>
+			
 			<dependency>
 				<groupId>joda-time</groupId>
 				<artifactId>joda-time</artifactId>
 				<version>${jodatime.version}</version>
 			</dependency>
+			
 			<!-- bean validator -->
 			<dependency>
 				<groupId>javax.validation</groupId>
@@ -627,7 +632,8 @@
 				<artifactId>hibernate-validator</artifactId>
 				<version>${hibernate.validator.version}</version>
 			</dependency>
-			<!-- dom4j�?�� @see http://mayatama.iteye.com/blog/1058048-->
+			
+			<!-- dom4j@see http://mayatama.iteye.com/blog/1058048-->
 			<dependency>
 	            <groupId>jaxen</groupId>
 	            <artifactId>jaxen</artifactId>
@@ -640,7 +646,7 @@
 	            </exclusions>
 	        </dependency>
 	        
-	        <!-- 加入excel依赖�?-->
+	        <!-- 加入excel依赖-->
 			<dependency>
 	          	<groupId>net.sf.jxls</groupId>
 	          	<artifactId>jxls-reader</artifactId>
