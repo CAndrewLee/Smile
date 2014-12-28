@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.somnus</groupId>
 		<artifactId>smile</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>8.0.1</version>
 	</parent>
 
 	<artifactId>smile-web</artifactId>
@@ -66,17 +66,16 @@
 		</dependency>
 		<!-- 加入jstl依赖包 -->
 		<dependency>
-			<groupId>jstl</groupId>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
-		</dependency>
-		<!-- servlet -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
 		</dependency>
 	</dependencies>
 	<build>

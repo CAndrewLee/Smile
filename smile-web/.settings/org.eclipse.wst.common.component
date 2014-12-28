@@ -4,23 +4,23 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="smile-base-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/smile-base/smile-base">
+        <dependent-module archiveName="smile-base-8.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/smile-base/smile-base">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="smile-support-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/smile-support/smile-support">
+        <dependent-module archiveName="smile-support-8.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/smile-support/smile-support">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="smile-message-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/smile-message/smile-message">
+        <dependent-module archiveName="smile-message-8.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/smile-message/smile-message">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="smile-biz-income-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/smile-biz-income/smile-biz-income">
+        <dependent-module archiveName="smile-biz-income-8.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/smile-biz-income/smile-biz-income">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="smile-biz-accquery-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/smile-biz-accquery/smile-biz-accquery">
+        <dependent-module archiveName="smile-biz-accquery-8.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/smile-biz-accquery/smile-biz-accquery">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="context-root" value="smile-web"/>
         <property name="java-output-path" value="/smile-web/target/classes"/>
         <property name="component.exclusion.patterns" value="WEB-INF/classes/logback-test.xml"/>
+        <property name="context-root" value="smile"/>
     </wb-module>
 </project-modules>

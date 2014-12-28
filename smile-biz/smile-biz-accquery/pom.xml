@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.somnus</groupId>
     <artifactId>smile-biz</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>8.0.1</version>
   </parent>
   
   <artifactId>smile-biz-accquery</artifactId>

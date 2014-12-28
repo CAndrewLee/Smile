@@ -5,11 +5,11 @@
 	<groupId>com.somnus</groupId>
 	<artifactId>smile</artifactId>
 	<packaging>pom</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>8.0.1</version>
 
 	<name>smile</name>
 	<url>http://maven.apache.org</url>
-	<description>maven在项目中是如何依赖�?聚合和继承的示例</description>
+	<description>maven在项目中是如何依赖聚合和继承的示例</description>
 	
     <licenses>
         <license>
@@ -256,25 +256,6 @@
 	<!-- 依赖管理 -->
 	<dependencyManagement>
 		<dependencies>
-			<!-- 加入jstl依赖�?-->
-			<dependency>
-				<groupId>jstl</groupId>
-				<artifactId>jstl</artifactId>
-				<version>1.2</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.servlet.jsp</groupId>
-				<artifactId>jsp-api</artifactId>
-				<version>2.2.1-b03</version>
-				<scope>provided</scope>
-			</dependency>
-			<!-- servlet -->
-			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>servlet-api</artifactId>
-				<version>2.5</version>
-				<scope>provided</scope>
-			</dependency>
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-core</artifactId>
@@ -301,7 +282,7 @@
 				<artifactId>jsch</artifactId>  
 				<version>${jsch.version}</version>  
 			</dependency>
-			<!-- 加入fastjson依赖�?-->
+			<!-- 加入fastjson依赖-->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
@@ -589,11 +570,6 @@
 				<artifactId>cglib</artifactId>
 				<version>${cglib.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>jstl</artifactId>
-				<version>${jstl.version}</version>
-			</dependency>
 
 			<!-- jdbc driver -->
 			<dependency>
@@ -610,7 +586,11 @@
 				<version>${servlet.version}</version>
 				<scope>provided</scope>
 			</dependency>
-
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>${jstl.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>javax.servlet.jsp</groupId>
 				<artifactId>jsp-api</artifactId>
@@ -685,6 +665,7 @@
 	<build>
 		<!-- 基础插件配置 -->
 		<plugins>
+			<!-- 设置JDK版本 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -696,6 +677,7 @@
 					<showWarnings>true</showWarnings>
 				</configuration>
 			</plugin>
+			<!-- 源码打包部署插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -713,7 +695,7 @@
 					<artifactId>maven-war-plugin</artifactId>
 					<version>${war.plugin.version}</version>
 					<configuration>
-						<!-- 打包时的常规排除�?-->
+						<!-- 打包时的常规排除-->
 						<packagingExcludes>
 							WEB-INF/classes/logback-test.xml
 						</packagingExcludes>
@@ -728,7 +710,7 @@
 		<repository>
 			<id>public</id>
 			<name>Public Repositories</name>
-			<url>http://maven.oschina.net/content/groups/public/</url>
+			<url>http://localhost:8081/nexus/content/groups/public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -742,7 +724,7 @@
 		<pluginRepository>
 			<id>public</id>
 			<name>Public Repositories</name>
-			<url>http://maven.oschina.net/content/groups/public/</url>
+			<url>http://localhost:8081/nexus/content/groups/public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -755,13 +737,13 @@
 	<distributionManagement>
 		<!-- 正式发布版本 -->
 		<repository>
-			<id>smile-releases</id>
-			<url>http://maven.oschina.net/content/repositories/smile-releases/</url>
+			<id>release</id>
+			<url>http://localhost:8081/nexus/content/repositories/releases/</url>
 		</repository>
 		<!-- 快照版本 -->
 		<snapshotRepository>
-			<id>smile-snapshots</id>
-			<url>http://maven.oschina.net/content/repositories/smile-snapshots/</url>
+			<id>snapshots</id>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
