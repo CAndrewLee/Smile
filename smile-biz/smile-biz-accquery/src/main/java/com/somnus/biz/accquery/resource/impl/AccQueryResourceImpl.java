@@ -56,7 +56,5 @@ public class AccQueryResourceImpl implements AccQueryResource {
 		response.setRepMsg(message.getRepMsg());
 		return response;
 	}
-	
-	
 
 }
