@@ -26,7 +26,7 @@ public class ValidationInterceptor {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
     @Autowired
-    private javax.validation.Validator validator;        //Match any public methods in a class annotated with @AutoValidating
+    private Validator validator;        //Match any public methods in a class annotated with @AutoValidating
 
     @SuppressWarnings("deprecation")
     @Around("execution(public * *(..)) && @within(org.springframework.validation.annotation.Validated)")
