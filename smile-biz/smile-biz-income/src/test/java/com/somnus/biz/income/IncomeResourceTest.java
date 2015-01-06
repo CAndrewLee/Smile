@@ -33,7 +33,7 @@ public class IncomeResourceTest extends AbstractTestSupport {
         incomeRequest.setFrontNo("frontNo");
         incomeRequest.setFrontTime("setFrontTime");
 
-        incomeRequest.setPrdCode("1301");
+        /*incomeRequest.setPrdCode("1301");*/
         incomeRequest.setIpsBillNo("ipsBillNo");
         incomeRequest.setAppTranNo("Income"+new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())+ (int)Math.random()*100);
         incomeRequest.setAppTranDate(new Date());
