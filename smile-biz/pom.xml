@@ -21,6 +21,10 @@
 		<artifactId>smile-base</artifactId>
 		<version>${project.version}</version>
 	</dependency>
+	<dependency>
+		<groupId>com.somnus.restful.core</groupId>
+		<artifactId>rest-core</artifactId>
+	</dependency>
   </dependencies>
   
 </project>

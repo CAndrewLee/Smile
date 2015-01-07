@@ -55,6 +55,8 @@
 		<jackson.version>2.2.3</jackson.version>
 		<!-- jersey -->
 		<jersey.version>1.17.1</jersey.version>
+		<!-- rest -->
+		<rest.core.version>1.1.14</rest.core.version>
 		<!-- MQ -->
 		<activemq.version>5.7.0</activemq.version>
 		<!-- log -->
@@ -414,7 +416,12 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-
+			<!-- rest -->
+			<dependency>
+			  <groupId>com.somnus.restful.core</groupId>
+			  <artifactId>rest-core</artifactId>
+			  <version>${rest.core.version}</version>
+			</dependency>
 			<!-- activeMQ -->
 			<dependency>
 				<groupId>org.apache.activemq</groupId>
