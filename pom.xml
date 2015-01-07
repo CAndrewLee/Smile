@@ -418,7 +418,7 @@
 			</dependency>
 			<!-- rest -->
 			<dependency>
-			  <groupId>com.somnus.restful.core</groupId>
+			  <groupId>com.somnus.rest.core</groupId>
 			  <artifactId>rest-core</artifactId>
 			  <version>${rest.core.version}</version>
 			</dependency>
