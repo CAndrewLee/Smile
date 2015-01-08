@@ -16,6 +16,9 @@
         <dependent-module archiveName="smile-biz-income-8.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/smile-biz-income/smile-biz-income">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="rest-core-3.2.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/rest-core/rest-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="smile-biz-accquery-8.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/smile-biz-accquery/smile-biz-accquery">
             <dependency-type>uses</dependency-type>
         </dependent-module>

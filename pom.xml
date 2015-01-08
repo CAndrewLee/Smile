@@ -723,8 +723,7 @@
 		<repository>
 			<id>public</id>
 			<name>Public Repositories</name>
-			<url>http://maven.oschina.net/content/groups/public/</url>
-			<!-- <url>http://localhost:8081/nexus/content/groups/public/</url> -->
+			<url>http://localhost:8081/nexus/content/groups/public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -738,8 +737,7 @@
 		<pluginRepository>
 			<id>public</id>
 			<name>Public Repositories</name>
-			<url>http://maven.oschina.net/content/groups/public/</url>
-			<!-- <url>http://localhost:8081/nexus/content/groups/public/</url> -->
+			<url>http://localhost:8081/nexus/content/groups/public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
