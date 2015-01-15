@@ -1,14 +1,11 @@
 package com.somnus.support.util.excel;
 
-import java.beans.BeanInfo;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -19,6 +16,7 @@ import java.util.Set;
 
 import net.sf.jxls.transformer.XLSTransformer;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -195,61 +193,59 @@ public class JxlsUtils {
 	 * @param obj
 	 * @param outPath
 	 */
+	@SuppressWarnings("unchecked")
 	public static void mergeTemplate(String template, Object obj, String outPath) {
-		mergeTemplate(template, bean2Map(obj), outPath);
-	}
-
-	/**
-	 * 根据模板生成文件到指定路径
-	 * 
-	 * @param template
-	 * @param obj
-	 * @param os
-	 */
-	public static void mergeTemplate(String template, Object obj, OutputStream os) {
-		mergeTemplate(template, bean2Map(obj), os);
-	}
-
-	/**
-	 * 根据模板生成文件到指定路径
-	 * 
-	 * @param template
-	 * @param obj
-	 * @param os
-	 */
-	public static Workbook  mergeTemplate(String template, Object obj) {
-		return mergeTemplate(template, bean2Map(obj));
-	}
-
-	/**
-	 * javaban 转化为map
-	 * 
-	 * @param bean
-	 * @return
-	 */
-	public static Map<String, Object> bean2Map(Object bean) {
-		Map<String, Object> returnMap = new HashMap<String, Object>();
 		try {
-			Class type = bean.getClass();
-			BeanInfo beanInfo = Introspector.getBeanInfo(type);
-			PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
-			for (int i = 0; i < propertyDescriptors.length; i++) {
-				PropertyDescriptor descriptor = propertyDescriptors[i];
-				String propertyName = descriptor.getName();
-				if (!propertyName.equals("class")) {
-					Method readMethod = descriptor.getReadMethod();
-					Object result = readMethod.invoke(bean, new Object[0]);
-					if (result != null) {
-						returnMap.put(propertyName, result);
-					} else {
-						returnMap.put(propertyName, "");
-					}
-				}
-			}
-		} catch (Exception ex) {
-			throw new RuntimeException(ex);
+			mergeTemplate(template, BeanUtils.describe(obj), outPath);
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e);
+		} catch (InvocationTargetException e) {
+			throw new RuntimeException(e);
+		} catch (NoSuchMethodException e) {
+			throw new RuntimeException(e);
 		}
-		return returnMap;
+	}
+
+	/**
+	 * 根据模板生成文件到指定路径
+	 * 
+	 * @param template
+	 * @param obj
+	 * @param os
+	 */
+	@SuppressWarnings("unchecked")
+	public static void mergeTemplate(String template, Object obj, OutputStream os) {
+		try {
+			mergeTemplate(template, BeanUtils.describe(obj), os);
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e);
+		} catch (InvocationTargetException e) {
+			throw new RuntimeException(e);
+		} catch (NoSuchMethodException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * 根据模板生成文件到指定路径
+	 * 
+	 * @param template
+	 * @param obj
+	 * @param os
+	 */
+	@SuppressWarnings("unchecked")
+	public static Workbook  mergeTemplate(String template, Object obj) {
+		Workbook  Workbook = null;
+		try {
+			Workbook = mergeTemplate(template, BeanUtils.describe(obj));
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e);
+		} catch (InvocationTargetException e) {
+			throw new RuntimeException(e);
+		} catch (NoSuchMethodException e) {
+			throw new RuntimeException(e);
+		}
+		return Workbook;
 	}
 	
 	/**

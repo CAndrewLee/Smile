@@ -13,21 +13,20 @@ import org.slf4j.LoggerFactory;
  * @date 2014-1-20
  * @version 1.0
  */
-public abstract class AbstractReportTemplate implements ReportTemplate {
+public abstract class AbstractReportTemplate{
 	
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
-	protected static final String TEMP_PATH_XLS =  "META-INF/template/xls/";
+	protected static final String TEMP_PATH_XLS = "META-INF/template/xls/";
 	
-	@Override
 	public void export(String strartDate, String endDate, OutputStream outputStream){
-		Workbook workbook=exportReport(strartDate, endDate);
+		Workbook workbook = exportReport(strartDate, endDate);
 		try {
 			workbook.write(outputStream);
 		} catch (IOException e) {
 			log.error("导出报表异常",e);
+			throw new RuntimeException("导出报表异常", e);
 		}
 	}
 	
-	@Override
 	public abstract Workbook exportReport(String strartDate, String endDate);
 }
