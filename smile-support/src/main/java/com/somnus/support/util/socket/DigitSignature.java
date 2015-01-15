@@ -19,8 +19,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class DigitSignature {
 	private final static Logger log = LoggerFactory.getLogger(DigitSignature.class);
-	private final static String PUBLIC_KEY = "license/public_connect.cer";
-	private final static String PRIVATE_KEY = "license/private_connect.key";
+	private final static String PUBLIC_KEY = "META-INF/license/public_connect.cer";
+	private final static String PRIVATE_KEY = "META-INF/license/private_connect.key";
 	
 	@Value("${somnus.signature.keyAlgorithm}")
 	private String keyAlgorithm ;//秘钥生成算法
